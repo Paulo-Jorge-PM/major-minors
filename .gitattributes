@@ -1,2 +1,5 @@
 models/articles.json filter=lfs diff=lfs merge=lfs -text
 models/articles-publico.json filter=lfs diff=lfs merge=lfs -text
+ontologies filter=lfs diff=lfs merge=lfs -text
+ontologies/ontologia-publico.ttl filter=lfs diff=lfs merge=lfs -text
+ontologies/ontologia-minors.ttl filter=lfs diff=lfs merge=lfs -text
