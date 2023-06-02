@@ -24,7 +24,7 @@ listen 80;
 }
 ```
 
-Install UWSGI and expose the Flask web app:
+Install UWSGI (and configure it) and expose the Flask web app in NGINX:
 
 ```
 server {
@@ -33,15 +33,15 @@ server {
 
     location / {
         include uwsgi_params;
-        uwsgi_pass unix:/var/www/flask/uwsgi.sock;
+        uwsgi_pass unix:/var/www/major-minors/uwsgi.sock;
     }
 
     location /static {
-        alias  /var/www/flask/static;
+        alias  /var/www/major-minors/static;
     }
 
     location /favicon.ico {
-        alias /var/www/flask/static/favicon.ico;
+        alias /var/www/major-minors/static/favicon.ico;
     }
 }
 ```
