@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/ekko-lightbox.css') }}">
+
+<style type="text/css">
+.images-gallery a {
+display:inline-block;
+margin:5px;
+}
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+<section class="content">
+<div class="container-fluid pr-5 pl-5">
+
+<div class="btn-group" style="margin-bottom:20px;">
+  <a class="btn btn-default{% if minority not in minorias: %} btn-active{% endif %}" role="button" href="{{ url_for('images.images') }}">
+    Todos
+  </a>
+  {% for minoria in minorias: %}
+  <a class="btn btn-default{% if minority == minoria: %} btn-active{% endif %}" href="{{ url_for('images.images', minority=minoria) }}" >
+    {{minoria.capitalize()}}
+  </a>
+  {% endfor %}
+
+  <button type="button" class="btn btn-secondary" data-toggle="popover" title="Algoritmo de pontuação" data-content="O valor junto a cada minoria representa o peso da referência no artigo: quanto mais alto o valor maior a probailidade da relação. Desenvolvemos um algoritmo que pontua de acordo com vários critérios (palavras-chave referidas, posicionamento, cruzamento com outras referências, etc.), sendo 2 o valor mínimo e 21 o máximo."><i class="nav-icon fas fa-question"></i></button>
+</div>
+
+
+{{ pagination.links }}
+
+
+
+<!--
+<div class="container">
+<div class="card-columns">-->
+
+<div class="container-fluid text-center pr-5 pl-5" style="margin:50px 0px;">
+<!--data-max-width="600"-->
+<div class="images-gallery">
+{% for row in data: %}
+<a href="{{ filterLink(row['imageLink']['value']) }}" data-toggle="lightbox" data-gallery="example-gallery" data-gallery="galeria-jornais" class="hover-effect-2" data-type="image" data-footer="<b>NOTÍCIA:</b> <i>{{ row['title']['value'] }}</i> <b>JORNAL PÚBLICO</b> <b><a href='{{ url_for('articles.articles', id=row['idArticle']['value']) }}'>METADADOS</a></b>">
+    <figure><img src="{{ filterLink(row['imageLink']['value']) }}" class="img-fluid"></figure>
+    <span class="img-news-title">{{ row['title']['value'] }}</span>
+</a>
+{% endfor %}
+</div>
+
+</div>
+
+
+{{ pagination.links }}
+
+
+</div><!-- /.container-fluid -->
+</section>
+
+
+
+{% block end %}
+
+<script src="{{ url_for('static', filename='js/ekko-lightbox.min.js') }}"></script>
+
+<script>
+$(document).on('click', '[data-toggle="lightbox"]', function(event) {
+                event.preventDefault();
+                //$(this).ekkoLightbox(wrapping: false);
+                $(this).ekkoLightbox();
+            });
+
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
+</script>
+{% endblock %}
+
+{% endblock %}

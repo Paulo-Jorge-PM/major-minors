@@ -1,0 +1,1928 @@
+{
+  "_comment" : "Created with OWL2VOWL (version 0.3.7), http://vowl.visualdataweb.org",
+  "header" : {
+    "baseIris" : [ "http://www.w3.org/2002/07/owl", "http://www.w3.org/2000/01/rdf-schema", "http://sparql.ilch.uminho.pt", "http://www.w3.org/2001/XMLSchema" ],
+    "prefixList" : {
+      "owl" : "http://www.w3.org/2002/07/owl#",
+      "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "xsd" : "http://www.w3.org/2001/XMLSchema#",
+      "" : "http://sparql.ilch.uminho.pt#",
+      "xml" : "http://www.w3.org/XML/1998/namespace",
+      "rdfs" : "http://www.w3.org/2000/01/rdf-schema#"
+    },
+    "iri" : "http://sparql.ilch.uminho.pt"
+  },
+  "namespace" : [ ],
+  "class" : [ {
+    "id" : "3",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "13",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "16",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "23",
+    "type" : "owl:Class"
+  }, {
+    "id" : "26",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "27",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "28",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "29",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "30",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "31",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "32",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "33",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "34",
+    "type" : "owl:Class"
+  }, {
+    "id" : "15",
+    "type" : "owl:Class"
+  }, {
+    "id" : "21",
+    "type" : "owl:Class"
+  }, {
+    "id" : "25",
+    "type" : "owl:Class"
+  }, {
+    "id" : "8",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "46",
+    "type" : "owl:Class"
+  }, {
+    "id" : "50",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "54",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "58",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "41",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "44",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "59",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "60",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "61",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "64",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "74",
+    "type" : "owl:Class"
+  }, {
+    "id" : "63",
+    "type" : "owl:Class"
+  }, {
+    "id" : "43",
+    "type" : "owl:Class"
+  }, {
+    "id" : "97",
+    "type" : "owl:Class"
+  }, {
+    "id" : "2",
+    "type" : "owl:Class"
+  }, {
+    "id" : "109",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "12",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "87",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "114",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "85",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "81",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "37",
+    "type" : "owl:Class"
+  }, {
+    "id" : "56",
+    "type" : "owl:Class"
+  }, {
+    "id" : "89",
+    "type" : "owl:Class"
+  }, {
+    "id" : "40",
+    "type" : "owl:Class"
+  }, {
+    "id" : "18",
+    "type" : "owl:Class"
+  }, {
+    "id" : "103",
+    "type" : "owl:Class"
+  }, {
+    "id" : "5",
+    "type" : "owl:Class"
+  }, {
+    "id" : "35",
+    "type" : "owl:Class"
+  }, {
+    "id" : "7",
+    "type" : "owl:Class"
+  }, {
+    "id" : "144",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "133",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "142",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "99",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "146",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "52",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "73",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "148",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "152",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "135",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "75",
+    "type" : "owl:Class"
+  }, {
+    "id" : "72",
+    "type" : "owl:Class"
+  }, {
+    "id" : "1",
+    "type" : "owl:Class"
+  } ],
+  "classAttribute" : [ {
+    "iri" : "http://www.w3.org/2001/XMLSchema#dateTime",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "3",
+    "label" : {
+      "IRI-based" : "dateTime"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "13",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "16",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#Tag",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Tag"
+    },
+    "id" : "23"
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "26",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "27",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "28",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "29",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "30",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#anyURI",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "31",
+    "label" : {
+      "IRI-based" : "anyURI"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#dateTime",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "32",
+    "label" : {
+      "IRI-based" : "dateTime"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "33",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#Ethnicity",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Ethnicity"
+    },
+    "id" : "34"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#City",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "City"
+    },
+    "id" : "15",
+    "superClasses" : [ "35" ]
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#Job",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Job"
+    },
+    "id" : "21"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#Priority",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Priority"
+    },
+    "id" : "25"
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "8",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#Comment",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Comment"
+    },
+    "id" : "46",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "50",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "54",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "58",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "41",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "44",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "59",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "60",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "61",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "64",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#Time",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Time"
+    },
+    "subClasses" : [ "75", "2" ],
+    "id" : "74"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#OtherPlace",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "OtherPlace"
+    },
+    "id" : "63",
+    "superClasses" : [ "35" ]
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#Continent",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Continent"
+    },
+    "id" : "43",
+    "superClasses" : [ "35" ]
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#Newspaper",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Newspaper"
+    },
+    "id" : "97"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#Month",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Month"
+    },
+    "id" : "2",
+    "superClasses" : [ "74" ]
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "109",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "12",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "87",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#dateTime",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "114",
+    "label" : {
+      "IRI-based" : "dateTime"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#anyURI",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "85",
+    "label" : {
+      "IRI-based" : "anyURI"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "81",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#Image",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Image"
+    },
+    "id" : "37",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#Keyword",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Keyword"
+    },
+    "id" : "56"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#Religion",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Religion"
+    },
+    "id" : "89"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#Country",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Country"
+    },
+    "id" : "40",
+    "superClasses" : [ "35" ]
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#Animal",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Animal"
+    },
+    "id" : "18"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#Entity",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Entity"
+    },
+    "id" : "103"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#Person",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Person"
+    },
+    "id" : "5"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#Place",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Place"
+    },
+    "subClasses" : [ "43", "15", "40", "63" ],
+    "id" : "35"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#Minority",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Minority"
+    },
+    "id" : "7"
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "144",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "133",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#anyURI",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "142",
+    "label" : {
+      "IRI-based" : "anyURI"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#anyURI",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "99",
+    "label" : {
+      "IRI-based" : "anyURI"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "146",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "52",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "73",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "148",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "152",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#integer",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "135",
+    "label" : {
+      "IRI-based" : "integer"
+    }
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#Weekday",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Weekday"
+    },
+    "id" : "75",
+    "superClasses" : [ "74" ]
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#PoliticalParty",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "PoliticalParty"
+    },
+    "id" : "72"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#Article",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Article"
+    },
+    "subClasses" : [ "46", "37" ],
+    "id" : "1"
+  } ],
+  "property" : [ {
+    "id" : "0",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "4",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "6",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "9",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "11",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "14",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "17",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "20",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "24",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "36",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "39",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "42",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "45",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "47",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "48",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "51",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "53",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "55",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "62",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "65",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "66",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "68",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "70",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "71",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "76",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "77",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "78",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "79",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "80",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "82",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "84",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "86",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "88",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "90",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "91",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "92",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "93",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "94",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "95",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "96",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "98",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "100",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "101",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "102",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "104",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "38",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "105",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "106",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "107",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "67",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "108",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "110",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "69",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "111",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "112",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "115",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "116",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "117",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "118",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "119",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "57",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "121",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "122",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "123",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "83",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "22",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "124",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "120",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "125",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "126",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "127",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "129",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "113",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "130",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "132",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "134",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "136",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "137",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "138",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "139",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "140",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "141",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "143",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "128",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "145",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "147",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "149",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "150",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "151",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "49",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "19",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "153",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "154",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "155",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "131",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "156",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "10",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "157",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "158",
+    "type" : "owl:objectProperty"
+  } ],
+  "propertyAttribute" : [ {
+    "iri" : "http://sparql.ilch.uminho.pt#referesMonth",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "referesMonth"
+    },
+    "domain" : "1",
+    "attributes" : [ "object" ],
+    "id" : "0"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#referesPerson",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "5",
+    "label" : {
+      "IRI-based" : "referesPerson"
+    },
+    "domain" : "1",
+    "attributes" : [ "object" ],
+    "id" : "4"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#minority",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "8",
+    "label" : {
+      "IRI-based" : "minority"
+    },
+    "domain" : "7",
+    "attributes" : [ "datatype" ],
+    "id" : "6"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#minorityReferedBy",
+    "inverse" : "10",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "1",
+    "label" : {
+      "IRI-based" : "minorityReferedBy"
+    },
+    "domain" : "7",
+    "attributes" : [ "object" ],
+    "id" : "9"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#hasArticle",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "12",
+    "label" : {
+      "IRI-based" : "hasArticle"
+    },
+    "domain" : "12",
+    "attributes" : [ "object" ],
+    "id" : "11"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#referesCity",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "15",
+    "label" : {
+      "IRI-based" : "referesCity"
+    },
+    "domain" : "1",
+    "attributes" : [ "object" ],
+    "id" : "14"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#animalReferedBy",
+    "inverse" : "19",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "1",
+    "label" : {
+      "IRI-based" : "animalReferedBy"
+    },
+    "domain" : "18",
+    "attributes" : [ "object" ],
+    "id" : "17"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#jobReferedBy",
+    "inverse" : "22",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "1",
+    "label" : {
+      "IRI-based" : "jobReferedBy"
+    },
+    "domain" : "21",
+    "attributes" : [ "object" ],
+    "id" : "20"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#hasPriority",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "25",
+    "label" : {
+      "IRI-based" : "hasPriority"
+    },
+    "domain" : "1",
+    "attributes" : [ "object" ],
+    "id" : "24"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#hasImage",
+    "inverse" : "38",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "37",
+    "label" : {
+      "IRI-based" : "hasImage"
+    },
+    "domain" : "1",
+    "attributes" : [ "object" ],
+    "id" : "36"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#country",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "41",
+    "label" : {
+      "IRI-based" : "country"
+    },
+    "domain" : "40",
+    "attributes" : [ "datatype" ],
+    "id" : "39"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#continent",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "44",
+    "label" : {
+      "IRI-based" : "continent"
+    },
+    "domain" : "43",
+    "attributes" : [ "datatype" ],
+    "id" : "42"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#hasComment",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "46",
+    "label" : {
+      "IRI-based" : "hasComment"
+    },
+    "domain" : "1",
+    "attributes" : [ "object" ],
+    "id" : "45"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#countryInContinent",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "12",
+    "label" : {
+      "IRI-based" : "countryInContinent"
+    },
+    "domain" : "12",
+    "attributes" : [ "object" ],
+    "id" : "47"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#ethnicityReferedBY",
+    "inverse" : "49",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "1",
+    "label" : {
+      "IRI-based" : "ethnicityReferedBY"
+    },
+    "domain" : "34",
+    "attributes" : [ "object" ],
+    "id" : "48"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#tag",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "52",
+    "label" : {
+      "IRI-based" : "tag"
+    },
+    "domain" : "23",
+    "attributes" : [ "datatype" ],
+    "id" : "51"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#personReferedBy",
+    "inverse" : "4",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "1",
+    "label" : {
+      "IRI-based" : "personReferedBy"
+    },
+    "domain" : "5",
+    "attributes" : [ "object" ],
+    "id" : "53"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#keywordAssociatedToMinority",
+    "inverse" : "57",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "7",
+    "label" : {
+      "IRI-based" : "keywordAssociatedToMinority"
+    },
+    "domain" : "56",
+    "attributes" : [ "object" ],
+    "id" : "55"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#otherPlace",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "64",
+    "label" : {
+      "IRI-based" : "otherPlace"
+    },
+    "domain" : "63",
+    "attributes" : [ "datatype" ],
+    "id" : "62"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#countryHasCity",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "15",
+    "label" : {
+      "IRI-based" : "countryHasCity"
+    },
+    "domain" : "40",
+    "attributes" : [ "object" ],
+    "id" : "65"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#keywordReferedBy",
+    "inverse" : "67",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "1",
+    "label" : {
+      "IRI-based" : "keywordReferedBy"
+    },
+    "domain" : "56",
+    "attributes" : [ "object" ],
+    "id" : "66"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#continentHasOtherPlace",
+    "inverse" : "69",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "63",
+    "label" : {
+      "IRI-based" : "continentHasOtherPlace"
+    },
+    "domain" : "43",
+    "attributes" : [ "object" ],
+    "id" : "68"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#religionReferedBy",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "12",
+    "label" : {
+      "IRI-based" : "religionReferedBy"
+    },
+    "domain" : "12",
+    "attributes" : [ "object" ],
+    "id" : "70"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#politicalParty",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "73",
+    "label" : {
+      "IRI-based" : "politicalParty"
+    },
+    "domain" : "72",
+    "attributes" : [ "datatype" ],
+    "id" : "71"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#month",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "61",
+    "label" : {
+      "IRI-based" : "month"
+    },
+    "domain" : "2",
+    "attributes" : [ "datatype" ],
+    "id" : "76"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#author",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "13",
+    "label" : {
+      "IRI-based" : "author"
+    },
+    "domain" : "1",
+    "attributes" : [ "datatype" ],
+    "id" : "77"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#preview",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "59",
+    "label" : {
+      "IRI-based" : "preview"
+    },
+    "domain" : "1",
+    "attributes" : [ "datatype" ],
+    "id" : "78"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#referesOtherPlace",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "63",
+    "label" : {
+      "IRI-based" : "referesOtherPlace"
+    },
+    "domain" : "1",
+    "attributes" : [ "object" ],
+    "id" : "79"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#job",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "81",
+    "label" : {
+      "IRI-based" : "job"
+    },
+    "domain" : "21",
+    "attributes" : [ "datatype" ],
+    "id" : "80"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#hasJob",
+    "inverse" : "83",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "21",
+    "label" : {
+      "IRI-based" : "hasJob"
+    },
+    "domain" : "5",
+    "attributes" : [ "object" ],
+    "id" : "82"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#wikiPage",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "85",
+    "label" : {
+      "IRI-based" : "wikiPage"
+    },
+    "domain" : "5",
+    "attributes" : [ "datatype" ],
+    "id" : "84"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#ethnicity",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "87",
+    "label" : {
+      "IRI-based" : "ethnicity"
+    },
+    "domain" : "34",
+    "attributes" : [ "datatype" ],
+    "id" : "86"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#referesReligion",
+    "inverse" : "70",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "89",
+    "label" : {
+      "IRI-based" : "referesReligion"
+    },
+    "domain" : "1",
+    "attributes" : [ "object" ],
+    "id" : "88"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#animal",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "33",
+    "label" : {
+      "IRI-based" : "animal"
+    },
+    "domain" : "18",
+    "attributes" : [ "datatype" ],
+    "id" : "90"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#commentDate",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "32",
+    "label" : {
+      "IRI-based" : "commentDate"
+    },
+    "domain" : "46",
+    "attributes" : [ "datatype" ],
+    "id" : "91"
+  }, {
+    "range" : "1",
+    "domain" : "46",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "92"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#comment",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "29",
+    "label" : {
+      "IRI-based" : "comment"
+    },
+    "domain" : "46",
+    "attributes" : [ "datatype" ],
+    "id" : "93"
+  }, {
+    "range" : "35",
+    "domain" : "63",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "94"
+  }, {
+    "range" : "1",
+    "domain" : "37",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "95"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#dataPub",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "3",
+    "label" : {
+      "IRI-based" : "dataPub"
+    },
+    "domain" : "1",
+    "attributes" : [ "datatype" ],
+    "id" : "96"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#newspaperHomepage",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "99",
+    "label" : {
+      "IRI-based" : "newspaperHomepage"
+    },
+    "domain" : "97",
+    "attributes" : [ "datatype" ],
+    "id" : "98"
+  }, {
+    "range" : "35",
+    "domain" : "40",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "100"
+  }, {
+    "range" : "35",
+    "domain" : "15",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "101"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#referesEntity",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "103",
+    "label" : {
+      "IRI-based" : "referesEntity"
+    },
+    "domain" : "1",
+    "attributes" : [ "object" ],
+    "id" : "102"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#entityReferedBy",
+    "inverse" : "102",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "1",
+    "label" : {
+      "IRI-based" : "entityReferedBy"
+    },
+    "domain" : "103",
+    "attributes" : [ "object" ],
+    "id" : "104"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#imageIn",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "12",
+    "label" : {
+      "IRI-based" : "imageIn"
+    },
+    "domain" : "12",
+    "attributes" : [ "object" ],
+    "id" : "38"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#cityReferedBy",
+    "inverse" : "14",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "1",
+    "label" : {
+      "IRI-based" : "cityReferedBy"
+    },
+    "domain" : "15",
+    "attributes" : [ "object" ],
+    "id" : "105"
+  }, {
+    "range" : "35",
+    "domain" : "43",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "106"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#title",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "30",
+    "label" : {
+      "IRI-based" : "title"
+    },
+    "domain" : "1",
+    "attributes" : [ "datatype" ],
+    "id" : "107"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#referesKeyword",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "56",
+    "label" : {
+      "IRI-based" : "referesKeyword"
+    },
+    "domain" : "1",
+    "attributes" : [ "object" ],
+    "id" : "67"
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#topDataProperty",
+    "baseIri" : "http://www.w3.org/2002/07/owl",
+    "range" : "109",
+    "label" : {
+      "IRI-based" : "topDataProperty"
+    },
+    "domain" : "12",
+    "attributes" : [ "datatype", "external" ],
+    "id" : "108"
+  }, {
+    "range" : "74",
+    "domain" : "2",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "110"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#otherPlaceInContinent",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "12",
+    "label" : {
+      "IRI-based" : "otherPlaceInContinent"
+    },
+    "domain" : "12",
+    "attributes" : [ "object" ],
+    "id" : "69"
+  }, {
+    "range" : "74",
+    "domain" : "75",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "111"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#placeReferedBy",
+    "inverse" : "113",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "1",
+    "label" : {
+      "IRI-based" : "placeReferedBy"
+    },
+    "domain" : "35",
+    "attributes" : [ "object" ],
+    "id" : "112"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#personName",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "58",
+    "label" : {
+      "IRI-based" : "personName"
+    },
+    "domain" : "5",
+    "attributes" : [ "datatype" ],
+    "id" : "115"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#imageFileName",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "16",
+    "label" : {
+      "IRI-based" : "imageFileName"
+    },
+    "domain" : "37",
+    "attributes" : [ "datatype" ],
+    "id" : "116"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#weekReferedBy",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "12",
+    "label" : {
+      "IRI-based" : "weekReferedBy"
+    },
+    "domain" : "12",
+    "attributes" : [ "object" ],
+    "id" : "117"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#cityInCountry",
+    "inverse" : "65",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "40",
+    "label" : {
+      "IRI-based" : "cityInCountry"
+    },
+    "domain" : "15",
+    "attributes" : [ "object" ],
+    "id" : "118"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#politicalPartyReferedBy",
+    "inverse" : "120",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "1",
+    "label" : {
+      "IRI-based" : "politicalPartyReferedBy"
+    },
+    "domain" : "72",
+    "attributes" : [ "object" ],
+    "id" : "119"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#minorityAssociatedToKeyword",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "56",
+    "label" : {
+      "IRI-based" : "minorityAssociatedToKeyword"
+    },
+    "domain" : "7",
+    "attributes" : [ "object" ],
+    "id" : "57"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#commentIn",
+    "inverse" : "45",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "1",
+    "label" : {
+      "IRI-based" : "commentIn"
+    },
+    "domain" : "46",
+    "attributes" : [ "object" ],
+    "id" : "121"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#articleFrom",
+    "inverse" : "11",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "97",
+    "label" : {
+      "IRI-based" : "articleFrom"
+    },
+    "domain" : "1",
+    "attributes" : [ "object" ],
+    "id" : "122"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#fileName",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "54",
+    "label" : {
+      "IRI-based" : "fileName"
+    },
+    "domain" : "1",
+    "attributes" : [ "datatype" ],
+    "id" : "123"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#jobDoneBy",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "12",
+    "label" : {
+      "IRI-based" : "jobDoneBy"
+    },
+    "domain" : "12",
+    "attributes" : [ "object" ],
+    "id" : "83"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#referesJob",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "21",
+    "label" : {
+      "IRI-based" : "referesJob"
+    },
+    "domain" : "1",
+    "attributes" : [ "object" ],
+    "id" : "22"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#referesWeek",
+    "inverse" : "117",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "75",
+    "label" : {
+      "IRI-based" : "referesWeek"
+    },
+    "domain" : "1",
+    "attributes" : [ "object" ],
+    "id" : "124"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#referesPoliticalParty",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "72",
+    "label" : {
+      "IRI-based" : "referesPoliticalParty"
+    },
+    "domain" : "1",
+    "attributes" : [ "object" ],
+    "id" : "120"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#dateBirth",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "114",
+    "label" : {
+      "IRI-based" : "dateBirth"
+    },
+    "domain" : "5",
+    "attributes" : [ "datatype" ],
+    "id" : "125"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#weekday",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "60",
+    "label" : {
+      "IRI-based" : "weekday"
+    },
+    "domain" : "75",
+    "attributes" : [ "datatype" ],
+    "id" : "126"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#continetReferedBy",
+    "inverse" : "128",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "1",
+    "label" : {
+      "IRI-based" : "continetReferedBy"
+    },
+    "domain" : "43",
+    "attributes" : [ "object" ],
+    "id" : "127"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#sentimentAnalysis",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "28",
+    "label" : {
+      "IRI-based" : "sentimentAnalysis"
+    },
+    "domain" : "1",
+    "attributes" : [ "datatype" ],
+    "id" : "129"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#referesPlace",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "35",
+    "label" : {
+      "IRI-based" : "referesPlace"
+    },
+    "domain" : "1",
+    "attributes" : [ "object" ],
+    "id" : "113"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#referesTag",
+    "inverse" : "131",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "23",
+    "label" : {
+      "IRI-based" : "referesTag"
+    },
+    "domain" : "1",
+    "attributes" : [ "object" ],
+    "id" : "130"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#city",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "133",
+    "label" : {
+      "IRI-based" : "city"
+    },
+    "domain" : "15",
+    "attributes" : [ "datatype" ],
+    "id" : "132"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#priority",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "135",
+    "label" : {
+      "IRI-based" : "priority"
+    },
+    "domain" : "7",
+    "attributes" : [ "datatype" ],
+    "id" : "134"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#otherPlaceReferedBy",
+    "inverse" : "79",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "1",
+    "label" : {
+      "IRI-based" : "otherPlaceReferedBy"
+    },
+    "domain" : "63",
+    "attributes" : [ "object" ],
+    "id" : "136"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#referesCountry",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "40",
+    "label" : {
+      "IRI-based" : "referesCountry"
+    },
+    "domain" : "1",
+    "attributes" : [ "object" ],
+    "id" : "137"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#continentHasCountry",
+    "inverse" : "47",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "40",
+    "label" : {
+      "IRI-based" : "continentHasCountry"
+    },
+    "domain" : "43",
+    "attributes" : [ "object" ],
+    "id" : "138"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#minorityHasPerson",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "12",
+    "label" : {
+      "IRI-based" : "minorityHasPerson"
+    },
+    "domain" : "12",
+    "attributes" : [ "object" ],
+    "id" : "139"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#countryReferedBy",
+    "inverse" : "137",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "1",
+    "label" : {
+      "IRI-based" : "countryReferedBy"
+    },
+    "domain" : "40",
+    "attributes" : [ "object" ],
+    "id" : "140"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#imageLink",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "142",
+    "label" : {
+      "IRI-based" : "imageLink"
+    },
+    "domain" : "37",
+    "attributes" : [ "datatype" ],
+    "id" : "141"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#link",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "31",
+    "label" : {
+      "IRI-based" : "link"
+    },
+    "domain" : "1",
+    "attributes" : [ "datatype" ],
+    "id" : "143"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#referesContinent",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "43",
+    "label" : {
+      "IRI-based" : "referesContinent"
+    },
+    "domain" : "1",
+    "attributes" : [ "object" ],
+    "id" : "128"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#religion",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "50",
+    "label" : {
+      "IRI-based" : "religion"
+    },
+    "domain" : "89",
+    "attributes" : [ "datatype" ],
+    "id" : "145"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#newspaperName",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "26",
+    "label" : {
+      "IRI-based" : "newspaperName"
+    },
+    "domain" : "97",
+    "attributes" : [ "datatype" ],
+    "id" : "147"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#monthReferedBy",
+    "inverse" : "0",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "1",
+    "label" : {
+      "IRI-based" : "monthReferedBy"
+    },
+    "domain" : "2",
+    "attributes" : [ "object" ],
+    "id" : "149"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#belongsTo",
+    "inverse" : "139",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "7",
+    "label" : {
+      "IRI-based" : "belongsTo"
+    },
+    "domain" : "5",
+    "attributes" : [ "object" ],
+    "id" : "150"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#gender",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "27",
+    "label" : {
+      "IRI-based" : "gender"
+    },
+    "domain" : "5",
+    "attributes" : [ "datatype" ],
+    "id" : "151"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#referesEthnicity",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "34",
+    "label" : {
+      "IRI-based" : "referesEthnicity"
+    },
+    "domain" : "1",
+    "attributes" : [ "object" ],
+    "id" : "49"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#referesAnimal",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "18",
+    "label" : {
+      "IRI-based" : "referesAnimal"
+    },
+    "domain" : "1",
+    "attributes" : [ "object" ],
+    "id" : "19"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#entity",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "148",
+    "label" : {
+      "IRI-based" : "entity"
+    },
+    "domain" : "103",
+    "attributes" : [ "datatype" ],
+    "id" : "153"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#subTittle",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "152",
+    "label" : {
+      "IRI-based" : "subTittle"
+    },
+    "domain" : "1",
+    "attributes" : [ "datatype" ],
+    "id" : "154"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#timeReferedBy",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "12",
+    "label" : {
+      "IRI-based" : "timeReferedBy"
+    },
+    "domain" : "12",
+    "attributes" : [ "object" ],
+    "id" : "155"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#tagReferedBy",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "12",
+    "label" : {
+      "IRI-based" : "tagReferedBy"
+    },
+    "domain" : "12",
+    "attributes" : [ "object" ],
+    "id" : "131"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#keyword",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "146",
+    "label" : {
+      "IRI-based" : "keyword"
+    },
+    "domain" : "56",
+    "attributes" : [ "datatype" ],
+    "id" : "156"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#referesMinority",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "7",
+    "label" : {
+      "IRI-based" : "referesMinority"
+    },
+    "domain" : "1",
+    "attributes" : [ "object" ],
+    "id" : "10"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#text",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "144",
+    "label" : {
+      "IRI-based" : "text"
+    },
+    "domain" : "1",
+    "attributes" : [ "datatype" ],
+    "id" : "157"
+  }, {
+    "iri" : "http://sparql.ilch.uminho.pt#referesTime",
+    "inverse" : "155",
+    "baseIri" : "http://sparql.ilch.uminho.pt",
+    "range" : "74",
+    "label" : {
+      "IRI-based" : "referesTime"
+    },
+    "domain" : "1",
+    "attributes" : [ "object" ],
+    "id" : "158"
+  } ]
+}

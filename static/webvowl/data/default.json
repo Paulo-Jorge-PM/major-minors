@@ -1,0 +1,1924 @@
+{
+  "_comment" : "Created with OWL2VOWL (version 0.3.7), http://vowl.visualdataweb.org",
+  "header" : {
+    "baseIris" : [ "http://www.w3.org/2002/07/owl", "http://www.w3.org/2000/01/rdf-schema", "http://www.semanticweb.org/lei", "http://www.w3.org/2001/XMLSchema" ],
+    "prefixList" : {
+      "owl" : "http://www.w3.org/2002/07/owl#",
+      "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "xsd" : "http://www.w3.org/2001/XMLSchema#",
+      "" : "http://www.semanticweb.org/lei#",
+      "xml" : "http://www.w3.org/XML/1998/namespace",
+      "rdfs" : "http://www.w3.org/2000/01/rdf-schema#"
+    },
+    "iri" : "http://www.semanticweb.org/lei"
+  },
+  "namespace" : [ ],
+  "class" : [ {
+    "id" : "0",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "11",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "12",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "15",
+    "type" : "owl:Class"
+  }, {
+    "id" : "22",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "23",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "24",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "25",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "26",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "27",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "28",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "29",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "30",
+    "type" : "owl:Class"
+  }, {
+    "id" : "31",
+    "type" : "owl:Class"
+  }, {
+    "id" : "17",
+    "type" : "owl:Class"
+  }, {
+    "id" : "14",
+    "type" : "owl:Class"
+  }, {
+    "id" : "43",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "40",
+    "type" : "owl:Class"
+  }, {
+    "id" : "6",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "47",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "51",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "52",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "53",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "38",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "54",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "35",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "57",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "64",
+    "type" : "owl:Class"
+  }, {
+    "id" : "56",
+    "type" : "owl:Class"
+  }, {
+    "id" : "82",
+    "type" : "owl:Class"
+  }, {
+    "id" : "37",
+    "type" : "owl:Class"
+  }, {
+    "id" : "66",
+    "type" : "owl:Class"
+  }, {
+    "id" : "10",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "74",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "91",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "49",
+    "type" : "owl:Class"
+  }, {
+    "id" : "77",
+    "type" : "owl:Class"
+  }, {
+    "id" : "34",
+    "type" : "owl:Class"
+  }, {
+    "id" : "20",
+    "type" : "owl:Class"
+  }, {
+    "id" : "86",
+    "type" : "owl:Class"
+  }, {
+    "id" : "3",
+    "type" : "owl:Class"
+  }, {
+    "id" : "32",
+    "type" : "owl:Class"
+  }, {
+    "id" : "5",
+    "type" : "owl:Class"
+  }, {
+    "id" : "116",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "111",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "84",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "118",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "45",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "63",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "120",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "106",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "123",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "113",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "65",
+    "type" : "owl:Class"
+  }, {
+    "id" : "62",
+    "type" : "owl:Class"
+  }, {
+    "id" : "127",
+    "type" : "owl:Class"
+  }, {
+    "id" : "2",
+    "type" : "owl:Class"
+  } ],
+  "classAttribute" : [ {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "0",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "11",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#dateTime",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "12",
+    "label" : {
+      "IRI-based" : "dateTime"
+    }
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#Tag",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Tag"
+    },
+    "id" : "15"
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "22",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "23",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#dateTime",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "24",
+    "label" : {
+      "IRI-based" : "dateTime"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "25",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "26",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "27",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "28",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#dateTime",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "29",
+    "label" : {
+      "IRI-based" : "dateTime"
+    }
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#Ethnicity",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Ethnicity"
+    },
+    "id" : "30"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#City",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "City"
+    },
+    "individuals" : [ {
+      "iri" : "http://www.semanticweb.org/lei#city-Horta",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "city-Horta"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#city-Lisboa",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "city-Lisboa"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#city-Barreiro",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "city-Barreiro"
+      }
+    } ],
+    "id" : "31",
+    "superClasses" : [ "32" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#Job",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Job"
+    },
+    "id" : "17"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#Priority",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Priority"
+    },
+    "id" : "14"
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "43",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#Comment",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Comment"
+    },
+    "id" : "40"
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "6",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#anyURI",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "47",
+    "label" : {
+      "IRI-based" : "anyURI"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "51",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "52",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "53",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "38",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "54",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "35",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "57",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#Time",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Time"
+    },
+    "subClasses" : [ "65", "66" ],
+    "id" : "64"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#OtherPlace",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "OtherPlace"
+    },
+    "id" : "56",
+    "superClasses" : [ "32" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#Newspaper",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Newspaper"
+    },
+    "id" : "82"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#Continent",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Continent"
+    },
+    "individuals" : [ {
+      "iri" : "http://www.semanticweb.org/lei#continent-Europa",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "continent-Europa"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#continent-América",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "continent-América"
+      }
+    } ],
+    "id" : "37",
+    "superClasses" : [ "32" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#Month",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Month"
+    },
+    "individuals" : [ {
+      "iri" : "http://www.semanticweb.org/lei#month-Outubro",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "month-Outubro"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#month-Agosto",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "month-Agosto"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#month-Fevereiro",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "month-Fevereiro"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#month-Setembro",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "month-Setembro"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#month-Dezembro",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "month-Dezembro"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#month-Junho",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "month-Junho"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#month-Maio",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "month-Maio"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#month-Abril",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "month-Abril"
+      }
+    } ],
+    "id" : "66",
+    "superClasses" : [ "64" ]
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "10",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#anyURI",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "74",
+    "label" : {
+      "IRI-based" : "anyURI"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "91",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#Keyword",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Keyword"
+    },
+    "individuals" : [ {
+      "iri" : "http://www.semanticweb.org/lei#keyword-rapto",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "keyword-rapto"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#keyword-sexo",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "keyword-sexo"
+      }
+    } ],
+    "id" : "49"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#Religion",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Religion"
+    },
+    "id" : "77"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#Country",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Country"
+    },
+    "individuals" : [ {
+      "iri" : "http://www.semanticweb.org/lei#country-Reino_Unido",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "country-Reino_Unido"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#country-Alemanha",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "country-Alemanha"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#country-Quénia",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "country-Quénia"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#country-República_Checa",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "country-República_Checa"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#country-China",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "country-China"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#country-Tunísia",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "country-Tunísia"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#country-Grécia",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "country-Grécia"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#country-Itália",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "country-Itália"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#country-Somália",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "country-Somália"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#country-Estados_Unidos",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "country-Estados_Unidos"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#country-França",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "country-França"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#country-Portugal",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "country-Portugal"
+      }
+    } ],
+    "id" : "34",
+    "superClasses" : [ "32" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#Animal",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Animal"
+    },
+    "individuals" : [ {
+      "iri" : "http://www.semanticweb.org/lei#animal-gato",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "animal-gato"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#animal-urso",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "animal-urso"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#animal-rato",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "animal-rato"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#animal-cação",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "animal-cação"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#animal-anta",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "animal-anta"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#animal-ostra",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "animal-ostra"
+      }
+    } ],
+    "id" : "20"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#Entity",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Entity"
+    },
+    "individuals" : [ {
+      "iri" : "http://www.semanticweb.org/lei#entity-FMI",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "entity-FMI"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#entity-NATO",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "entity-NATO"
+      }
+    } ],
+    "id" : "86"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#Person",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Person"
+    },
+    "individuals" : [ {
+      "iri" : "http://www.semanticweb.org/lei#person-Cavaco_Silva",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "person-Cavaco_Silva"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#person-José_Sócrates",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "person-José_Sócrates"
+      }
+    } ],
+    "id" : "3"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#Place",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Place"
+    },
+    "subClasses" : [ "37", "31", "34", "56" ],
+    "id" : "32"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#Minority",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Minority"
+    },
+    "individuals" : [ {
+      "iri" : "http://www.semanticweb.org/lei#minority-africanos",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "minority-africanos"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#minority-refugiados",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "minority-refugiados"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#minority-asiaticos",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "minority-asiaticos"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#minority-animais",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "minority-animais"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#minority-mulheres",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "minority-mulheres"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#minority-homosexualidade",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "minority-homosexualidade"
+      }
+    } ],
+    "id" : "5"
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "116",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "111",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#anyURI",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "84",
+    "label" : {
+      "IRI-based" : "anyURI"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "118",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "45",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "63",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "120",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "106",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "123",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#integer",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "113",
+    "label" : {
+      "IRI-based" : "integer"
+    }
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#Weekday",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Weekday"
+    },
+    "individuals" : [ {
+      "iri" : "http://www.semanticweb.org/lei#weekday-quarta-feira",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "weekday-quarta-feira"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#weekday-segunda-feira",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "weekday-segunda-feira"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#weekday-sexta-feira",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "weekday-sexta-feira"
+      }
+    } ],
+    "id" : "65",
+    "superClasses" : [ "64" ]
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#PoliticalParty",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "PoliticalParty"
+    },
+    "id" : "62"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#Politicalparty",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Politicalparty"
+    },
+    "individuals" : [ {
+      "iri" : "http://www.semanticweb.org/lei#politicalParty-Bloco_de_Esquerda",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "politicalParty-Bloco_de_Esquerda"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#politicalParty-Partido_Ecologista_Os_Verdes",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "politicalParty-Partido_Ecologista_Os_Verdes"
+      }
+    } ],
+    "id" : "127"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#Article",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Article"
+    },
+    "individuals" : [ {
+      "iri" : "http://www.semanticweb.org/lei#article-1584879274.5683436.html",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "article-1584879274.5683436.html"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#article-1584810080.5622604.html",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "article-1584810080.5622604.html"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#article-1584932815.163563.html",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "article-1584932815.163563.html"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#article-1583370347.868078.html",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "article-1583370347.868078.html"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#article-1584916323.198139.html",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "article-1584916323.198139.html"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#article-1584961487.189174.html",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "article-1584961487.189174.html"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#article-1583367230.2996492.html",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "article-1583367230.2996492.html"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#article-1585009469.8384733.html",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "article-1585009469.8384733.html"
+      }
+    }, {
+      "iri" : "http://www.semanticweb.org/lei#article-1583531670.2748585.html",
+      "baseIri" : "http://www.semanticweb.org/lei",
+      "labels" : {
+        "IRI-based" : "article-1583531670.2748585.html"
+      }
+    } ],
+    "id" : "2"
+  } ],
+  "property" : [ {
+    "id" : "1",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "4",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "7",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "9",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "13",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "16",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "19",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "33",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "36",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "39",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "41",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "44",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "46",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "48",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "55",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "58",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "60",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "61",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "67",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "68",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "69",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "70",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "71",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "73",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "75",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "76",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "78",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "79",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "80",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "81",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "83",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "85",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "87",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "88",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "89",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "59",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "90",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "92",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "93",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "94",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "95",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "96",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "98",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "99",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "100",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "50",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "102",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "103",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "104",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "72",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "18",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "101",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "105",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "107",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "97",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "108",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "110",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "112",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "114",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "115",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "117",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "119",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "121",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "122",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "42",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "21",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "124",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "125",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "126",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "109",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "128",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "8",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "129",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "130",
+    "type" : "owl:objectProperty"
+  } ],
+  "propertyAttribute" : [ {
+    "iri" : "http://www.semanticweb.org/lei#referesPerson",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "3",
+    "label" : {
+      "IRI-based" : "referesPerson"
+    },
+    "domain" : "2",
+    "attributes" : [ "object" ],
+    "id" : "1"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#minority",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "6",
+    "label" : {
+      "IRI-based" : "minority"
+    },
+    "domain" : "5",
+    "attributes" : [ "datatype" ],
+    "id" : "4"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#minorityReferedBy",
+    "inverse" : "8",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "minorityReferedBy"
+    },
+    "domain" : "5",
+    "attributes" : [ "object" ],
+    "id" : "7"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#hasArticle",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "10",
+    "label" : {
+      "IRI-based" : "hasArticle"
+    },
+    "domain" : "10",
+    "attributes" : [ "object" ],
+    "id" : "9"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#hasPriority",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "14",
+    "label" : {
+      "IRI-based" : "hasPriority"
+    },
+    "domain" : "2",
+    "attributes" : [ "object" ],
+    "id" : "13"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#jobReferedBy",
+    "inverse" : "18",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "jobReferedBy"
+    },
+    "domain" : "17",
+    "attributes" : [ "object" ],
+    "id" : "16"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#animalReferedBy",
+    "inverse" : "21",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "animalReferedBy"
+    },
+    "domain" : "20",
+    "attributes" : [ "object" ],
+    "id" : "19"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#country",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "35",
+    "label" : {
+      "IRI-based" : "country"
+    },
+    "domain" : "34",
+    "attributes" : [ "datatype" ],
+    "id" : "33"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#continent",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "38",
+    "label" : {
+      "IRI-based" : "continent"
+    },
+    "domain" : "37",
+    "attributes" : [ "datatype" ],
+    "id" : "36"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#hasComment",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "40",
+    "label" : {
+      "IRI-based" : "hasComment"
+    },
+    "domain" : "2",
+    "attributes" : [ "object" ],
+    "id" : "39"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#ethnicityReferedBY",
+    "inverse" : "42",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "ethnicityReferedBY"
+    },
+    "domain" : "30",
+    "attributes" : [ "object" ],
+    "id" : "41"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#tag",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "45",
+    "label" : {
+      "IRI-based" : "tag"
+    },
+    "domain" : "15",
+    "attributes" : [ "datatype" ],
+    "id" : "44"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#personReferedBy",
+    "inverse" : "1",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "personReferedBy"
+    },
+    "domain" : "3",
+    "attributes" : [ "object" ],
+    "id" : "46"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#keywordAssociatedToMinority",
+    "inverse" : "50",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "5",
+    "label" : {
+      "IRI-based" : "keywordAssociatedToMinority"
+    },
+    "domain" : "49",
+    "attributes" : [ "object" ],
+    "id" : "48"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#otherPlace",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "54",
+    "label" : {
+      "IRI-based" : "otherPlace"
+    },
+    "domain" : "56",
+    "attributes" : [ "datatype" ],
+    "id" : "55"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#keywordReferedBy",
+    "inverse" : "59",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "keywordReferedBy"
+    },
+    "domain" : "49",
+    "attributes" : [ "object" ],
+    "id" : "58"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#religionReferedBy",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "10",
+    "label" : {
+      "IRI-based" : "religionReferedBy"
+    },
+    "domain" : "10",
+    "attributes" : [ "object" ],
+    "id" : "60"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#politicalParty",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "63",
+    "label" : {
+      "IRI-based" : "politicalParty"
+    },
+    "domain" : "62",
+    "attributes" : [ "datatype" ],
+    "id" : "61"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#month",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "57",
+    "label" : {
+      "IRI-based" : "month"
+    },
+    "domain" : "66",
+    "attributes" : [ "datatype" ],
+    "id" : "67"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#author",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "25",
+    "label" : {
+      "IRI-based" : "author"
+    },
+    "domain" : "2",
+    "attributes" : [ "datatype" ],
+    "id" : "68"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#preview",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "51",
+    "label" : {
+      "IRI-based" : "preview"
+    },
+    "domain" : "2",
+    "attributes" : [ "datatype" ],
+    "id" : "69"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#job",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "0",
+    "label" : {
+      "IRI-based" : "job"
+    },
+    "domain" : "17",
+    "attributes" : [ "datatype" ],
+    "id" : "70"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#hasJob",
+    "inverse" : "72",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "17",
+    "label" : {
+      "IRI-based" : "hasJob"
+    },
+    "domain" : "3",
+    "attributes" : [ "object" ],
+    "id" : "71"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#wikiPage",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "74",
+    "label" : {
+      "IRI-based" : "wikiPage"
+    },
+    "domain" : "3",
+    "attributes" : [ "datatype" ],
+    "id" : "73"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#ethnicity",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "11",
+    "label" : {
+      "IRI-based" : "ethnicity"
+    },
+    "domain" : "30",
+    "attributes" : [ "datatype" ],
+    "id" : "75"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#referesReligion",
+    "inverse" : "60",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "77",
+    "label" : {
+      "IRI-based" : "referesReligion"
+    },
+    "domain" : "2",
+    "attributes" : [ "object" ],
+    "id" : "76"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#animal",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "26",
+    "label" : {
+      "IRI-based" : "animal"
+    },
+    "domain" : "20",
+    "attributes" : [ "datatype" ],
+    "id" : "78"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#commentDate",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "29",
+    "label" : {
+      "IRI-based" : "commentDate"
+    },
+    "domain" : "40",
+    "attributes" : [ "datatype" ],
+    "id" : "79"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#comment",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "22",
+    "label" : {
+      "IRI-based" : "comment"
+    },
+    "domain" : "40",
+    "attributes" : [ "datatype" ],
+    "id" : "80"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#dataPub",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "24",
+    "label" : {
+      "IRI-based" : "dataPub"
+    },
+    "domain" : "2",
+    "attributes" : [ "datatype" ],
+    "id" : "81"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#newspaperHomepage",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "84",
+    "label" : {
+      "IRI-based" : "newspaperHomepage"
+    },
+    "domain" : "82",
+    "attributes" : [ "datatype" ],
+    "id" : "83"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#referesEntity",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "86",
+    "label" : {
+      "IRI-based" : "referesEntity"
+    },
+    "domain" : "2",
+    "attributes" : [ "object" ],
+    "id" : "85"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#entityReferedBy",
+    "inverse" : "85",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "entityReferedBy"
+    },
+    "domain" : "86",
+    "attributes" : [ "object" ],
+    "id" : "87"
+  }, {
+    "range" : "32",
+    "domain" : "56",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "88"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#title",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "27",
+    "label" : {
+      "IRI-based" : "title"
+    },
+    "domain" : "2",
+    "attributes" : [ "datatype" ],
+    "id" : "89"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#referesKeyword",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "49",
+    "label" : {
+      "IRI-based" : "referesKeyword"
+    },
+    "domain" : "2",
+    "attributes" : [ "object" ],
+    "id" : "59"
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#topDataProperty",
+    "baseIri" : "http://www.w3.org/2002/07/owl",
+    "range" : "91",
+    "label" : {
+      "IRI-based" : "topDataProperty"
+    },
+    "domain" : "10",
+    "attributes" : [ "datatype", "external" ],
+    "id" : "90"
+  }, {
+    "range" : "32",
+    "domain" : "37",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "92"
+  }, {
+    "range" : "64",
+    "domain" : "66",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "93"
+  }, {
+    "range" : "32",
+    "domain" : "34",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "94"
+  }, {
+    "range" : "32",
+    "domain" : "31",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "95"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#placeReferedBy",
+    "inverse" : "97",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "placeReferedBy"
+    },
+    "domain" : "32",
+    "attributes" : [ "object" ],
+    "id" : "96"
+  }, {
+    "range" : "64",
+    "domain" : "65",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "98"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#personName",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "52",
+    "label" : {
+      "IRI-based" : "personName"
+    },
+    "domain" : "3",
+    "attributes" : [ "datatype" ],
+    "id" : "99"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#politicalPartyReferedBy",
+    "inverse" : "101",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "politicalPartyReferedBy"
+    },
+    "domain" : "62",
+    "attributes" : [ "object" ],
+    "id" : "100"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#minorityAssociatedToKeyword",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "49",
+    "label" : {
+      "IRI-based" : "minorityAssociatedToKeyword"
+    },
+    "domain" : "5",
+    "attributes" : [ "object" ],
+    "id" : "50"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#articleFrom",
+    "inverse" : "9",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "82",
+    "label" : {
+      "IRI-based" : "articleFrom"
+    },
+    "domain" : "2",
+    "attributes" : [ "object" ],
+    "id" : "102"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#commentIn",
+    "inverse" : "39",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "commentIn"
+    },
+    "domain" : "40",
+    "attributes" : [ "object" ],
+    "id" : "103"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#fileName",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "43",
+    "label" : {
+      "IRI-based" : "fileName"
+    },
+    "domain" : "2",
+    "attributes" : [ "datatype" ],
+    "id" : "104"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#jobDoneBy",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "10",
+    "label" : {
+      "IRI-based" : "jobDoneBy"
+    },
+    "domain" : "10",
+    "attributes" : [ "object" ],
+    "id" : "72"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#referesJob",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "17",
+    "label" : {
+      "IRI-based" : "referesJob"
+    },
+    "domain" : "2",
+    "attributes" : [ "object" ],
+    "id" : "18"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#referesPoliticalParty",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "62",
+    "label" : {
+      "IRI-based" : "referesPoliticalParty"
+    },
+    "domain" : "2",
+    "attributes" : [ "object" ],
+    "id" : "101"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#weekday",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "106",
+    "label" : {
+      "IRI-based" : "weekday"
+    },
+    "domain" : "65",
+    "attributes" : [ "datatype" ],
+    "id" : "105"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#dateBirth",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "12",
+    "label" : {
+      "IRI-based" : "dateBirth"
+    },
+    "domain" : "3",
+    "attributes" : [ "datatype" ],
+    "id" : "107"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#referesPlace",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "32",
+    "label" : {
+      "IRI-based" : "referesPlace"
+    },
+    "domain" : "2",
+    "attributes" : [ "object" ],
+    "id" : "97"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#referesTag",
+    "inverse" : "109",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "15",
+    "label" : {
+      "IRI-based" : "referesTag"
+    },
+    "domain" : "2",
+    "attributes" : [ "object" ],
+    "id" : "108"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#city",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "111",
+    "label" : {
+      "IRI-based" : "city"
+    },
+    "domain" : "31",
+    "attributes" : [ "datatype" ],
+    "id" : "110"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#priority",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "113",
+    "label" : {
+      "IRI-based" : "priority"
+    },
+    "domain" : "5",
+    "attributes" : [ "datatype" ],
+    "id" : "112"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#minorityHasPerson",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "10",
+    "label" : {
+      "IRI-based" : "minorityHasPerson"
+    },
+    "domain" : "10",
+    "attributes" : [ "object" ],
+    "id" : "114"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#link",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "47",
+    "label" : {
+      "IRI-based" : "link"
+    },
+    "domain" : "2",
+    "attributes" : [ "datatype" ],
+    "id" : "115"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#religion",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "53",
+    "label" : {
+      "IRI-based" : "religion"
+    },
+    "domain" : "77",
+    "attributes" : [ "datatype" ],
+    "id" : "117"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#newspaperName",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "23",
+    "label" : {
+      "IRI-based" : "newspaperName"
+    },
+    "domain" : "82",
+    "attributes" : [ "datatype" ],
+    "id" : "119"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#belongsTo",
+    "inverse" : "114",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "5",
+    "label" : {
+      "IRI-based" : "belongsTo"
+    },
+    "domain" : "3",
+    "attributes" : [ "object" ],
+    "id" : "121"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#gender",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "28",
+    "label" : {
+      "IRI-based" : "gender"
+    },
+    "domain" : "3",
+    "attributes" : [ "datatype" ],
+    "id" : "122"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#referesEthnicity",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "30",
+    "label" : {
+      "IRI-based" : "referesEthnicity"
+    },
+    "domain" : "2",
+    "attributes" : [ "object" ],
+    "id" : "42"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#referesAnimal",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "20",
+    "label" : {
+      "IRI-based" : "referesAnimal"
+    },
+    "domain" : "2",
+    "attributes" : [ "object" ],
+    "id" : "21"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#entity",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "120",
+    "label" : {
+      "IRI-based" : "entity"
+    },
+    "domain" : "86",
+    "attributes" : [ "datatype" ],
+    "id" : "124"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#subTittle",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "123",
+    "label" : {
+      "IRI-based" : "subTittle"
+    },
+    "domain" : "2",
+    "attributes" : [ "datatype" ],
+    "id" : "125"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#timeReferedBy",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "10",
+    "label" : {
+      "IRI-based" : "timeReferedBy"
+    },
+    "domain" : "10",
+    "attributes" : [ "object" ],
+    "id" : "126"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#tagReferedBy",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "10",
+    "label" : {
+      "IRI-based" : "tagReferedBy"
+    },
+    "domain" : "10",
+    "attributes" : [ "object" ],
+    "id" : "109"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#keyword",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "118",
+    "label" : {
+      "IRI-based" : "keyword"
+    },
+    "domain" : "49",
+    "attributes" : [ "datatype" ],
+    "id" : "128"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#referesMinority",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "5",
+    "label" : {
+      "IRI-based" : "referesMinority"
+    },
+    "domain" : "2",
+    "attributes" : [ "object" ],
+    "id" : "8"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#text",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "116",
+    "label" : {
+      "IRI-based" : "text"
+    },
+    "domain" : "2",
+    "attributes" : [ "datatype" ],
+    "id" : "129"
+  }, {
+    "iri" : "http://www.semanticweb.org/lei#referesTime",
+    "inverse" : "126",
+    "baseIri" : "http://www.semanticweb.org/lei",
+    "range" : "64",
+    "label" : {
+      "IRI-based" : "referesTime"
+    },
+    "domain" : "2",
+    "attributes" : [ "object" ],
+    "id" : "130"
+  } ]
+}

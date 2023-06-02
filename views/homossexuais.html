@@ -1,0 +1,396 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;500;800&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/3d9627186b.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles-minorias.css') }}" type="text/css">
+{% endblock %}
+
+{% block content %}
+<div id="minorias">
+
+    <div class="bgimg homo">
+        <span>HOMOSSEXUAIS</span>
+    </div>
+    <p class="credits">Foto Andrea de Silva</p>
+
+    <div class="auto-responsive-container">
+        <div class="years-text">
+            <h1 class="pink-title">Menções em notícias ao longo dos anos</h1>
+            <p>A integração da comunidade lgbt na sociedade tem sofrido grandes alterações em anos recentes. O que no passado era um tabu e algo a se evitar mencionar, hoje é celebrado e não algo a esconder. O paradigma mudou, a comunidade lgbt está cada vez mais presente nas bocas do mundo e cada vez mais restrições legais são levantadas globalmente sobre os direitos dos membros desta minoria. Porém, aumentam também polémicas associadas e situações de descriminação, o que resulta num aumento gradual na quantidade anual de notícias.</p>
+        </div>
+        <div class="years-graph">
+            <canvas id="yearsChart"></canvas>
+        </div>
+    </div>
+
+    <div class="in-portugal-container homossexual">
+        <div class="portugal-map">
+            <img src="{{ url_for('static', filename='images/minorias/portugal-map.PNG') }}" alt="Portugal Map">
+        </div>
+        <div class="in-portugal-content">
+            <div class="years-text">
+                <span style="font-size: 13px; color: white;">Contextualização</span>
+                <h1 class="white-title">Homossexuais em Portugal</h1>
+                <p style="color: white;">Portugal é dos países que mais oferece proteção constitucional aos Homossexuais, defendendo que a orientação sexual não deve ser motivo de discriminação.
+                    Em 2019, Portugal foi o vencedor do <i>Spartacus Gay Travel Index</i>, tornando-se assim um porto de abrigo para Homossexuais que fogem do seu próprio país de modo a conseguirem assumir a sua sexualidade. No entanto, é sabido que entre a população portuguesa ainda está presente a homofobia.
+                    Já noutros países, ser homossexual equivale a uma pena de morte.
+                    Portugal integra os países que defendem esta minoria e reconhece o casamento civil entre Homossexuais a 5 de junho de 2010.</p>
+            </div>
+        </div>
+        <div class="cigano-triangle">
+            <img src="{{ url_for('static', filename='images/minorias/homossexuais-triangle.PNG') }}" alt="Africanos">
+        </div>
+    </div>
+
+    <div class="auto-responsive-container">
+        <div class="sentiment-graph">
+            <canvas id="sentimentRadarChart"></canvas>
+        </div>
+        <div class="sentiment-text">
+            <h1 class="pink-title">Análise do sentimento</h1>
+            <p>Foram analisados todos os títulos das notícias relacionadas com homossexuais e foi extraído o seu "sentimento". A análise de sentimento é usada para determinar o tom emocional associado a sequências de palavras. O intuito desta análise, neste contexto, é o de permitir extrair conclusões sobre qual o carácter das notícias que maioritarimente incidem sobre cada uma das minorias. No caso dos homossexuais, a maioria das notícias possui um carácter negativo.</p>
+        </div>
+    </div>
+
+    <div class="facts pink-background">
+        <div class="title-center">
+            <h1 class="white-title">Factos sobre a comunidade LGBTQ+</h1>
+        </div>
+        <div class="fact">
+            <h2>Ao nível de leis anti-discriminação, Portugal é o destino mais hospitaleiro para a comunidade LGBTI. <i class="fas fa-check" style="color:green";></i></h2>
+            <p>Público, 2019</p>
+        </div>
+        <div class="fact right">
+            <h2><i class="fas fa-check" style="color:green";></i> 42% dos portugueses ficariam desconfortáveis se um dos seus filhos estivesse numa relação gay.</h2>
+            <p style="text-align: right;">Observador, 2019</p>
+        </div>
+        <div class="fact">
+            <h2>71% dos portugueses acreditam que há discriminação no nosso país. <i class="fas fa-check" style="color:green";></i></h2>
+            <p>Observador, 2019</p>
+        </div>
+        <div class="fact right">
+            <h2><i class="fas fa-check" style="color:green";></i> Portugal mantém um clima social homofóbico e transfóbico.</h2>
+            <p style="text-align: right;">ILGA, 2019</p>
+        </div>
+    </div>
+
+
+    <div class="title-center">
+        <h1 class="pink-title">Distribuição geográfica dos locais mencionados</h1>
+    </div>
+
+    <div class="auto-responsive-container geographic-distribution">
+        <div>
+            <img class="separated-map-img" src="{{ url_for('static', filename='images/minorias/portugal-map-separated.png') }}" alt="">
+            {% for row in countByCities: %}{% if loop.index != 1: %}<br><br><br>{% endif %}<p class="map-zones"><b>{{row["city"]["value"]}}</b><br>{{row["articles"]["value"]}} Menções</p>{% endfor %}
+        </div>
+        <div>
+            <img class="world-img" src="{{ url_for('static', filename='images/minorias/earth-vector-icon-png_296088.jpg') }}" alt="">
+            {% for row in countByCountry: %}{% if loop.index != 1: %}<br><br><br>{% endif %}<p class="map-zones"><b>{{row["country"]["value"]}}</b><br>{{row["articles"]["value"]}} Menções</p>{% endfor %}
+        </div>
+    </div>
+
+    <div class="geographic-info">
+        <div class="divider div-transparent">   </div>
+    </div>
+
+
+    <div class="title-center">
+        <h1 class="pink-title">Algumas figuras relevantes na defesa dos direitos da comunidade LGBTQ+</h1>
+    </div>
+
+    <div class="relevant-people-container red">
+        <div class="relevant-person">
+            <img src="{{ url_for('static', filename='images/minorias/homo-billie.PNG') }}" alt="Billie Jean King">
+            <h2>Billie Jean King</h2>
+            <span style="color: grey;">Ex-tenista profissional/Ativista LGBT</span>
+        </div>
+        <div class="relevant-person">
+            <img src="{{ url_for('static', filename='images/minorias/homo-harvey.PNG') }}" alt="Harvey Milk">
+            <h2>Harvey Milk</h2>
+            <span style="color: grey;">Primeiro homem gay a ser eleito a um cargo público</span>
+        </div>
+        <div class="relevant-person">
+            <img src="{{ url_for('static', filename='images/minorias/homo-barbara.PNG') }}" alt="Barbara Gittings">
+            <h2>Barbara Gittings</h2>
+            <span style="color: grey;">Ativista LGBT</span>
+        </div>
+        <div class="relevant-person">
+            <img src="{{ url_for('static', filename='images/minorias/homo-sylvia.PNG') }}" alt="Sylvia Rivera">
+            <h2>Sylvia Rivera</h2>
+            <span style="color: grey;">Ativista dos direitos transexuais</span>
+        </div>
+
+    </div>
+
+
+    <div class="auto-responsive-container maps-container same-sex">
+        <div>
+            <img class="" src="{{ url_for('static', filename='images/minorias/same-sex-marriage.png') }}" alt="">
+        </div>
+        <div>
+            <h2>Países onde o casamento entre pessoas do mesmo sexo é legal</h2>
+            <p>A aceitação da integração desta minoria na sociedade e a legalização dos seus direitos, igualando aos de um cidadão comum, tem vindo a propagar-se por diversos países de diferentes continentes. Com mais incidência nos países desenvolvidos, o casamento entre pessoas do mesmo sexo é legal em 28 países, tendo sido o primerio a Holanda, no ano de 2000.</p>
+        </div>
+
+    </div>
+
+    <div class="auto-responsive-container maps-container illegal">
+        <div>
+            <h2>Legalidade da homossexualidade</h2>
+            <p>Do outro lado da moeda, existe o extremo oposto, em que ser homossexual é algo punível em termos legais. Homossexuais são obrigados a ocultar a sua orientação sexual e se não o fizerem, em alguns países, a sua vida poderá estar em risco. No gráfico ao lado, é possível constatar que em alguns países, maioritariamente africanos, a homossexualidade não só não é legal, mas também é punível à morte. Apesar da aceitação da homossexualidade estar a mudar em alguns países, noutros continua inalterada e é levada ao extremo.</p>
+        </div>
+        <div>
+            <img class="" src="{{ url_for('static', filename='images/minorias/homossexual-illegal.JPG') }}" alt="">
+        </div>
+
+    </div>
+
+
+    <div class = "pizza-container homossexual">
+        <div class="pieID--operations pie-chart--wrapper" id="lol">
+            <h1>Palavras-chave mais mencionadas</h1>
+            <div class="pie-chart">
+                <div class="pie-chart__pie"></div>
+                <ul class="pie-chart__legend">
+                    {% for row in countByKeywords: %}<li><em>{{row["keyword"]["value"]}}</em><span>{{row["articles"]["value"]}}</span></li>{% endfor %}
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <div class = "title-most-mentioned pink-background-wave">
+        <h1 class="white-title">Figuras com maior número de menções em notícias</h1>
+    </div>
+
+    <div class="most-mentioned-container pink-background-wave">
+
+        {% for row in countByPeople: %}
+        <div class = "famous-person">
+            <img class ="famous-pic image-cropper" src="{{ url_for('static', filename='images/persons/'+row['person']['value'].lower().replace(' ','_')+'.jpg') }}">
+            <h2>{{row["person"]["value"]}}</h2>
+            <p class="famous-job">{% if "job" in row: %}{{row["job"]["value"]}}{% endif %}</p>
+            <p class="n-mentions">Menções: {{row["articles"]["value"]}}</p>
+        </div>
+        {% endfor %}
+
+    </div>
+
+    <div class = "title-most-mentioned pink-background-wave">
+        <h1 class="white-title">Partidos políticos mencionados em notícias</h1>
+    </div>
+
+    <div class="most-mentioned-container pink-background-wave">
+
+        {% for row in countByPoliticalParty: %}
+        <div class = "partido">
+            <img class ="famous-pic image-cropper" src="{{ url_for('static', filename='images/partidos/'+row['party']['value'].lower().replace(' ','_').replace('!','')+'.png') }}">
+            <h2>{{row["party"]["value"].upper()}}</h2>
+            <p class="n-mentions">Menções: {{row["articles"]["value"]}}</p>
+        </div>
+        {% endfor %}
+
+    </div>
+
+    <div class = "title-most-relevant">
+        <img class="wave-P" src="{{ url_for('static', filename='images/minorias/P-homossexuais.png') }}" style="width:100%">
+        <h1 style="color: #f47a91;">Algumas notícias relevantes</h1>
+    </div>
+
+    <div class="auto-responsive-container noticias-container ">
+        {% for row in topArticles: %}
+        <div class="noticia-card">
+            <img src="{{ url_for('static', filename='images/articles/'+articleImages[loop.index-1])}}" style="width: 100%; height: 150px; object-fit: cover; object-position: 0 40%; filter: grayscale(70%);">
+            <h5>{{row["title"]["value"]}}</h5>
+            <p>{% if row["preview"]["value"]: %}{{row["preview"]["value"][:200]}}...{% else: %}{{row["text"]["value"][:200]}}...{% endif %}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="see-more-news">
+        <a href="{{ url_for('articles.articles')}}/{{minority}}">Ver todas</a>
+    </div>
+
+
+</div>
+
+
+{% block end %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+<script>
+function isScrolledIntoView(elem)
+{
+    var docViewTop = $(window).scrollTop();
+    var docViewBottom = docViewTop + $(window).height();
+
+    var elemTop = $(elem).offset().top;
+    var elemBottom = elemTop + $(elem).height();
+
+    return ((elemTop <= docViewBottom) && (elemBottom >= docViewTop));
+}
+
+$(window).scroll(function() {
+    if (isScrolledIntoView('#yearsChart')) {
+        if (inView) { return; }
+        inView = true;
+        var ctx = document.getElementById('yearsChart').getContext('2d');
+
+        var myBarChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: [{% for row in articlesByYear: %}{% if loop.index != 1 %},{% endif %}'{{row["year"]["value"]}}'{% endfor %}],
+            datasets: [{
+                label: 'Nº de Notícias',
+                backgroundColor: 'rgb(205,111,208)', //received as argument
+                borderColor: 'rrgb(205,111,208)', //received as argument
+                data: [{% for row in articlesByYear: %}{% if loop.index != 1 %},{% endif %}{{row["articles"]["value"]}}{% endfor %}] //received as argument
+            }]
+          },
+          options: {}
+        });
+    } else {
+        inView = false;
+    }
+});
+
+
+$(window).scroll(function() {
+    if (isScrolledIntoView('#sentimentRadarChart')) {
+        if (inViewRadar) { return; }
+        inViewRadar = true;
+        var ctx = document.getElementById('sentimentRadarChart').getContext('2d');
+
+        var myRadarChart = new Chart(ctx, {
+          type: 'radar',
+          data: {
+            labels: ['Positivo', 'Negativo', 'Neutro'],
+            datasets: [{
+                label: 'Sentimento',
+                backgroundColor: 'rgb(244,122,145)',
+                data: [{{ countPositive }}, {{ countNegative }}, {{ countNeutral }}]
+            }]
+          },
+          options: {}
+        });
+    } else {
+        inViewRadar = false;
+    }
+});
+
+function sliceSize(dataNum, dataTotal) {
+  return (dataNum / dataTotal) * 360;
+}
+
+function addSlice(id, sliceSize, pieElement, offset, sliceID, color) {
+  $(pieElement).append("<div class='slice "+ sliceID + "'><span></span></div>");
+  var offset = offset - 1;
+  var sizeRotation = -179 + sliceSize;
+
+  $(id + " ." + sliceID).css({
+    "transform": "rotate(" + offset + "deg) translate3d(0,0,0)"
+  });
+
+  $(id + " ." + sliceID + " span").css({
+    "transform"       : "rotate(" + sizeRotation + "deg) translate3d(0,0,0)",
+    "background-color": color
+  });
+}
+
+function iterateSlices(id, sliceSize, pieElement, offset, dataCount, sliceCount, color) {
+  var
+    maxSize = 179,
+    sliceID = "s" + dataCount + "-" + sliceCount;
+
+  if( sliceSize <= maxSize ) {
+    addSlice(id, sliceSize, pieElement, offset, sliceID, color);
+  } else {
+    addSlice(id, maxSize, pieElement, offset, sliceID, color);
+    iterateSlices(id, sliceSize-maxSize, pieElement, offset+maxSize, dataCount, sliceCount+1, color);
+  }
+}
+
+
+
+
+
+
+function createPie(id) {
+  var
+    listData      = [],
+    listTotal     = 0,
+    offset        = 0,
+    i             = 0,
+    pieElement    = id + " .pie-chart__pie"
+    dataElement   = id + " .pie-chart__legend"
+
+    color         = [
+      "rgb(187,228,255)",
+      "rgb(2,166,209)",
+      "rgb(5,116,206)",
+      "rgb(239,71,111)",
+      "rgb(255,209,102)",
+      "rgb(6,214,160)",
+      "rgb(172,78,221)",
+      "rgb(255,140,62)",
+      "rgb(0,188,212)",
+      "rgb(194,24,91)",
+      "rgb(230,74,25)",
+      "rgb(103,58,183)"
+    ];
+
+  color = shuffle( color );
+
+  $(dataElement+" span").each(function() {
+    listData.push(Number($(this).html()));
+  });
+
+  for(i = 0; i < listData.length; i++) {
+    listTotal += listData[i];
+  }
+
+  for(i=0; i < listData.length; i++) {
+    var size = sliceSize(listData[i], listTotal);
+    iterateSlices(id, size, pieElement, offset, i, 0, color[i]);
+    $(dataElement + " li:nth-child(" + (i + 1) + ")").css("border-color", color[i]);
+    offset += size;
+  }
+}
+
+function shuffle(a) {
+    var j, x, i;
+    for (i = a.length; i; i--) {
+        j = Math.floor(Math.random() * i);
+        x = a[i - 1];
+        a[i - 1] = a[j];
+        a[j] = x;
+    }
+
+    return a;
+}
+
+function createPieCharts() {
+  createPie('.pieID--region' );
+  createPie('.pieID--operations' );
+}
+
+
+
+
+
+$(window).scroll(function() {
+    if (isScrolledIntoView('#lol')) {
+        if (inViewPizza) { return; }
+        inViewPizza = true;
+        createPieCharts();
+    } else {
+        inViewPizza = false;
+    }
+});
+</script>
+
+{% endblock %}
+
+{% endblock %}

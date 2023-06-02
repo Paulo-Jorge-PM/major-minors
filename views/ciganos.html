@@ -1,0 +1,373 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;500;800&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/3d9627186b.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles-minorias.css') }}" type="text/css">
+{% endblock %}
+
+{% block content %}
+<div id="minorias">
+
+
+    <div class="bgimg ciganos">
+        <span>CIGANOS</span>
+    </div>
+
+    <div class="auto-responsive-container">
+        <div class="years-text">
+            <h1 class="blue-title">Menções em notícias ao longo dos anos</h1>
+            <p>Esta minoria está frequentemente envolvida em situações polémicas, posteriormente noticiadas. A opinião pública sobre esta minoria é demonstrada pelo carácter das notícias, cujo contexto está muitas vezes associado a descriminação. A evolução desta minorias ao longo dos anos pode ser analisada através das notícias recolhidas, em que é possível perceber que pouco mudou.</p>
+        </div>
+        <div class="years-graph">
+            <canvas id="yearsChart"></canvas>
+        </div>
+    </div>
+
+    <div class="in-portugal-container">
+        <div class="portugal-map">
+            <img src="{{ url_for('static', filename='images/minorias/portugal-map.PNG') }}" alt="Portugal Map">
+        </div>
+        <div class="in-portugal-content">
+            <div class="years-text">
+                <span style="font-size: 13px; color: grey;">Contextualização</span>
+                <h1 class="white-title">Ciganos em Portugal</h1>
+                <p>Atualmente, os ciganos constituem a maior minoria étnica do continente Europeu, sendo eles os mais perseguidos, as maiores vítimas de preconceito, discriminação e maus tratos.  
+                    Acredita-se que a origem do preconceito possa estar relacionada com as profissões através das quais sobreviviam no passado (músicos, dançarinos, adivinhos, etc). As primeiras notícias da presença de ciganos em Portugal, provenientes de Espanha, datam da segunda metade do século XV. 
+                    Estima-se que existam entre 40 e os 60 mil Ciganos em Portugal, sendo que cerca de 30% vivem ainda em barracas, tendas ou caravanas, não tendo acesso ao mercado de trabalho e, cerca de 70%, vivem em bairros sociais.
+                    </p>
+            </div>
+        </div>
+        <div class="cigano-triangle">
+            <img src="{{ url_for('static', filename='images/minorias/ciganos-triangle.PNG') }}" alt="Ciganos">
+        </div>
+    </div>
+
+    <div class="auto-responsive-container">
+        <div class="sentiment-graph">
+            <canvas id="sentimentRadarChart"></canvas>
+        </div>
+        <div class="sentiment-text">
+            <h1 class="blue-title">Análise do sentimento</h1>
+            <p>Foram analisados todos os títulos das notícias relacionadas com ciganos e foi extraído o seu "sentimento". A análise de sentimento é usada para determinar o tom emocional associado a sequências de palavras. O intuito desta análise, neste contexto, é o de permitir extrair conclusões sobre qual o carácter das notícias que maioritarimente incidem sobre cada uma das minorias. No caso dos ciganos, a maioria das notícias possui um carácter negativo.</p>
+        </div>
+    </div>
+
+    <div class="facts blue-background">
+        <div class="title-center">
+            <h1 class="white-title">Factos sobre a comunidade cigana</h1>
+        </div>
+        <div class="fact">
+            <h2>Comunidade cigana em Portugal é de 37 mil indivíduos e 91,3% não tem o 3.º ciclo. <i class="fas fa-check" style="color:green";></i></h2>
+            <p>Diário de notícias, 2017</p>
+        </div> 
+        <div class="fact right">
+            <h2><i class="fas fa-check" style="color:green";></i> Os ciganos continuam a ser a minoria que mais portugueses preferem não ter como colegas no local de trabalho (17%)</h2>
+            <p style="text-align: right;">TSF Notícias, 2019</p>
+        </div> 
+        <div class="fact">
+            <h2>Apenas 3,8% dos beneficiários de RSI são de etnia cigana. <i class="fas fa-check" style="color:green";></i></h2>
+            <p>Poligrafo, 2019</p>
+        </div> 
+        <div class="fact right">
+            <h2><i class="fas fa-check" style="color:green";></i> 80% dos ciganos europeus vivem abaixo do limiar da pobreza.</h2>
+            <p style="text-align: right;">Observador, 2016</p>
+        </div> 
+    </div>
+
+
+    <div class="title-center">
+        <h1 class="blue-title">Distribuição geográfica dos locais mencionados em notícias</h1>
+    </div>
+
+    <div class="auto-responsive-container geographic-distribution">
+        <div>
+            <img class="separated-map-img" src="{{ url_for('static', filename='images/minorias/portugal-map-separated.png') }}" alt="">
+            {% for row in countByCities: %}{% if loop.index != 1: %}<br><br><br>{% endif %}<p class="map-zones"><b>{{row["city"]["value"]}}</b><br>{{row["articles"]["value"]}} Menções</p>{% endfor %}
+        </div>
+        <div>
+            <img class="world-img" src="{{ url_for('static', filename='images/minorias/earth-vector-icon-png_296088.jpg') }}" alt="">
+            {% for row in countByCountry: %}{% if loop.index != 1: %}<br><br><br>{% endif %}<p class="map-zones"><b>{{row["country"]["value"]}}</b><br>{{row["articles"]["value"]}} Menções</p>{% endfor %}
+        </div>
+    </div>
+
+    <div class="geographic-info">
+       
+        <div class="divider div-transparent">   </div>
+    </div>
+
+    <div class="title-center">
+        <h1 class="blue-title">Algumas figuras relevantes de ascendência cigana</h1>
+    </div>
+
+    <div class="relevant-people-container blue">
+        <div class="relevant-person">
+            <img src="{{ url_for('static', filename='images/minorias/ciganos-quaresma.PNG') }}" alt="Ricardo Quaresma">
+            <h2>Ricardo Quaresma</h2>
+            <span style="color: grey;">Futebolista</span>
+        </div>
+        <div class="relevant-person">
+            <img src="{{ url_for('static', filename='images/minorias/ciganos-chaplin.PNG') }}" alt="Charles Chaplin">
+            <h2>Charles Chaplin</h2>
+            <span style="color: grey;">Ator</span>
+        </div>
+        <div class="relevant-person">
+            <img src="{{ url_for('static', filename='images/minorias/ciganos-washington.PNG') }}" alt="Washington Luís">
+            <h2>Washington Luís</h2>
+            <span style="color: grey;">Ex-presidente do Brasil</span>
+        </div>
+        <div class="relevant-person">
+            <img src="{{ url_for('static', filename='images/minorias/ciganos-elvis.PNG') }}" alt="Elvis Presley">
+            <h2>Elvis Presley</h2>
+            <span style="color: grey;">Cantor</span>
+        </div>
+    </div>
+
+
+
+    <div class="pizza-container ciganos">
+        <div class="pieID--operations pie-chart--wrapper" id="lol">
+            <h1>Palavras-chave mais mencionadas</h1>
+            <div class="pie-chart">
+                <div class="pie-chart__pie"></div>
+                <ul class="pie-chart__legend">
+                    {% for row in countByKeywords: %}<li><em>{{row["keyword"]["value"]}}</em><span>{{row["articles"]["value"]}}</span></li>{% endfor %}
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="title-most-mentioned blue-background-wave">
+        <h1 class="white-title">Figuras com maior número de menções em notícias</h1>
+    </div>
+
+    <div class="most-mentioned-container blue-background-wave">
+        
+        {% for row in countByPeople: %}
+        <div class = "famous-person">
+            <img class ="famous-pic image-cropper" src="{{ url_for('static', filename='images/persons/'+row['person']['value'].lower().replace(' ','_')+'.jpg') }}">
+            <h2>{{row["person"]["value"]}}</h2>
+            <p class="famous-job">{% if "job" in row: %}{{row["job"]["value"]}}{% endif %}</p>
+            <p class="n-mentions">Menções: {{row["articles"]["value"]}}</p>
+        </div>
+        {% endfor %}
+
+    </div>
+
+    <div class="title-most-mentioned blue-background-wave">
+        <h1 class="white-title">Partidos políticos mencionados em notícias</h1>
+    </div>
+
+    <div class="most-mentioned-container blue-background-wave">
+        
+        {% for row in countByPoliticalParty: %}
+        <div class = "partido">
+            <img class ="famous-pic image-cropper" src="{{ url_for('static', filename='images/partidos/'+row['party']['value'].lower().replace(' ','_').replace('!','')+'.png') }}">
+            <h2>{{row["party"]["value"].upper()}}</h2>
+            <p class="n-mentions">Menções: {{row["articles"]["value"]}}</p>
+        </div>
+        {% endfor %}
+        
+        
+    </div>
+
+    <div class="title-most-relevant">
+        <img class="wave-P" src="{{ url_for('static', filename='images/minorias/P-ciganos.png') }}" style="width:100%">
+        <h1 style="color: #aad3cd;">Algumas notícias relevantes</h1>
+    </div>
+
+    <div class="auto-responsive-container noticias-container ">
+        {% for row in topArticles: %}
+        <div class="noticia-card">
+            <img src="{{ url_for('static', filename='images/articles/'+articleImages[loop.index-1])}}" style="width: 100%; height: 150px; object-fit: cover; object-position: 0 40%; filter: grayscale(70%);">
+            <h5>{{row["title"]["value"]}}</h5>
+            <p>{% if row["preview"]["value"]: %}{{row["preview"]["value"][:200]}}...{% else: %}{{row["text"]["value"][:200]}}...{% endif %}</p>
+        </div>
+        {% endfor %}        
+    </div>
+
+    <div class="see-more-news">
+        <a href="{{ url_for('articles.articles')}}/{{minority}}">Ver todas</a>
+    </div>
+
+</div>
+
+
+{% block end %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    
+<script>
+function isScrolledIntoView(elem)
+{
+    var docViewTop = $(window).scrollTop();
+    var docViewBottom = docViewTop + $(window).height();
+
+    var elemTop = $(elem).offset().top;
+    var elemBottom = elemTop + $(elem).height();
+
+    return ((elemTop <= docViewBottom) && (elemBottom >= docViewTop));
+}
+
+$(window).scroll(function() {
+    if (isScrolledIntoView('#yearsChart')) {
+        if (inView) { return; }
+        inView = true;
+        var ctx = document.getElementById('yearsChart').getContext('2d');
+
+        var myBarChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: [{% for row in articlesByYear: %}{% if loop.index != 1 %},{% endif %}'{{row["year"]["value"]}}'{% endfor %}],
+            datasets: [{
+                label: 'Nº de Notícias',
+                backgroundColor: 'rgb(127, 233, 235)', //received as argument
+                borderColor: 'rgb(127, 233, 235)', //received as argument
+                data: [{% for row in articlesByYear: %}{% if loop.index != 1 %},{% endif %}{{row["articles"]["value"]}}{% endfor %}] //received as argument
+            }]
+          },  
+          options: {}
+        });
+    } else {
+        inView = false;  
+    }
+});
+
+
+$(window).scroll(function() {
+    if (isScrolledIntoView('#sentimentRadarChart')) {
+        if (inViewRadar) { return; }
+        inViewRadar = true;
+        var ctx = document.getElementById('sentimentRadarChart').getContext('2d');
+
+        var myRadarChart = new Chart(ctx, {
+          type: 'radar',
+          data: {
+            labels: ['Positivo', 'Negativo', 'Neutro'],
+            datasets: [{
+                label: 'Sentimento',
+                backgroundColor: 'rgb(127, 233, 235)',
+                data: [{{ countPositive }}, {{ countNegative }}, {{ countNeutral }}]
+            }]
+          },  
+          options: {}
+        });
+    } else {
+        inViewRadar = false;  
+    }
+});
+
+function sliceSize(dataNum, dataTotal) {
+  return (dataNum / dataTotal) * 360;
+}
+
+function addSlice(id, sliceSize, pieElement, offset, sliceID, color) {
+  $(pieElement).append("<div class='slice "+ sliceID + "'><span></span></div>");
+  var offset = offset - 1;
+  var sizeRotation = -179 + sliceSize;
+
+  $(id + " ." + sliceID).css({
+    "transform": "rotate(" + offset + "deg) translate3d(0,0,0)"
+  });
+
+  $(id + " ." + sliceID + " span").css({
+    "transform"       : "rotate(" + sizeRotation + "deg) translate3d(0,0,0)",
+    "background-color": color
+  });
+}
+
+function iterateSlices(id, sliceSize, pieElement, offset, dataCount, sliceCount, color) {
+  var
+    maxSize = 179,
+    sliceID = "s" + dataCount + "-" + sliceCount;
+
+  if( sliceSize <= maxSize ) {
+    addSlice(id, sliceSize, pieElement, offset, sliceID, color);
+  } else {
+    addSlice(id, maxSize, pieElement, offset, sliceID, color);
+    iterateSlices(id, sliceSize-maxSize, pieElement, offset+maxSize, dataCount, sliceCount+1, color);
+  }
+}
+
+
+
+
+
+
+function createPie(id) {
+  var
+    listData      = [],
+    listTotal     = 0,
+    offset        = 0,
+    i             = 0,
+    pieElement    = id + " .pie-chart__pie"
+    dataElement   = id + " .pie-chart__legend"
+
+    color         = [
+      "rgb(187,228,255)",
+      "rgb(2,166,209)",
+      "rgb(5,116,206)",
+      "rgb(239,71,111)",
+      "rgb(255,209,102)",
+      "rgb(6,214,160)",
+      "rgb(172,78,221)",
+      "rgb(255,140,62)",
+      "rgb(0,188,212)",
+      "rgb(194,24,91)",
+      "rgb(230,74,25)",
+      "rgb(103,58,183)"
+    ];
+
+  color = shuffle( color );
+
+  $(dataElement+" span").each(function() {
+    listData.push(Number($(this).html()));
+  });
+
+  for(i = 0; i < listData.length; i++) {
+    listTotal += listData[i];
+  }
+
+  for(i=0; i < listData.length; i++) {
+    var size = sliceSize(listData[i], listTotal);
+    iterateSlices(id, size, pieElement, offset, i, 0, color[i]);
+    $(dataElement + " li:nth-child(" + (i + 1) + ")").css("border-color", color[i]);
+    offset += size;
+  }
+}
+
+function shuffle(a) {
+    var j, x, i;
+    for (i = a.length; i; i--) {
+        j = Math.floor(Math.random() * i);
+        x = a[i - 1];
+        a[i - 1] = a[j];
+        a[j] = x;
+    }
+
+    return a;
+}
+
+function createPieCharts() {
+  createPie('.pieID--region' );
+  createPie('.pieID--operations' );
+}
+
+
+
+
+
+$(window).scroll(function() {
+    if (isScrolledIntoView('#lol')) {
+        if (inViewPizza) { return; }
+        inViewPizza = true;
+        createPieCharts();
+    } else {
+        inViewPizza = false;  
+    }
+});
+</script>
+
+{% endblock %}
+
+{% endblock %}

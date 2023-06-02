@@ -1,0 +1,156 @@
+{% extends "layout.html" %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='dynatable/jquery.dynatable.css') }}" type="text/css">
+<style type="text/css">
+/*.clear {
+    clear:both;    
+}*/
+.btn-info {
+    margin-right:15px;
+    text-transform:uppercase;
+    padding:10px;
+    display:block;
+    float:left;
+}
+.btn-info span {
+    display:block;
+    text-decoration:none;
+    width:100%;
+    height:100%;
+    color:#fff;
+}
+.more.label {
+    float:right;    
+}
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+<section class="content">
+<div class="container-fluid pr-5 pl-5">
+
+
+  <div id="id-{{data['id']['value'].replace('.','-')}}" class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLongTitle"><b><em>{{data["title"]["value"]}}</em></b></h4>
+      </div>
+      <div class="modal-body">
+        <p><b>MINORIA(S):</b> {% for m in data["minorityPriority"]["value"].split("|"): %}<span class="badge badge-danger">{{m.split("#")[0].capitalize()}} <span class="badge badge-light">Pontuação: {{m.split("#")[1]}}</span></span></span> {% endfor %} &nbsp;&nbsp;|&nbsp;&nbsp; <span class="badge badge-info">Sentimento <span class="badge badge-light">{{data["sentiment"]["value"][:5]}}</span></span></p>
+        <hr>
+        <p><b>DATA:</b> {{data["dataPub"]["value"].split('T')[0]}}</p>
+        <hr>
+        <p class="text-truncate"><b>URL:</b> <a href="{{data['link']['value'].replace('noFrame/replay','wayback')}}" target="_blank">{{data['link']['value'].replace('noFrame/replay','wayback')}}</a></p>
+
+        {% if data["subTitle"]: %}
+        <hr>
+        <p><b>Subtítulo:</b> {{data["subTitle"]["value"]}}</p>
+        {% endif %}
+        {% if data["preview"]: %}
+        <hr>
+        <p><b>SUMÁRIO:</b> {{data["preview"]["value"]}}</p>
+        {% endif %}
+
+        <hr>
+        <p><b>TEXTO:</b> {{data["text"]["value"]}}</p>
+        <hr>
+        <p class="referencias"><b>REFERÊNCIAS:</b></p>
+        {% if data["person"]["value"]: %}
+        <p><span class="badge badge-primary">Pessoas</span> {% for x in data["person"]["value"].split("|"): %} <span class="badge badge-secondary">{{x}}</span> {% endfor %}</p>
+        {% endif %}
+        {% if data["continent"]["value"]: %}
+        <p><span class="badge badge-primary">Continentes</span> {% for x in data["continent"]["value"].split("|"): %} <span class="badge badge-secondary">{{x}}</span> {% endfor %}</p>
+        {% endif %}
+        {% if data["country"]["value"]: %}
+        <p><span class="badge badge-primary">Países</span> {% for x in data["country"]["value"].split("|"): %} <span class="badge badge-secondary">{{x}}</span> {% endfor %}</p>
+        {% endif %}
+        {% if data["city"]["value"]: %}
+        <p><span class="badge badge-primary">Cidades</span> {% for x in data["city"]["value"].split("|"): %} <span class="badge badge-secondary">{{x}}</span> {% endfor %}</p>
+        {% endif %}
+        {% if data["otherPlace"]["value"]: %}
+        <p><span class="badge badge-primary">Outros Lugares</span> {% for x in data["otherPlace"]["value"].split("|"): %} <span class="badge badge-secondary">{{x}}</span> {% endfor %}</p>
+        {% endif %}
+        {% if data["politicalParty"]["value"]: %}
+        <p><span class="badge badge-primary">Partidos</span> {% for x in data["politicalParty"]["value"].split("|"): %} <span class="badge badge-secondary">{{x}}</span> {% endfor %}</p>
+        {% endif %}
+        {% if data["religion"]["value"]: %}
+        <p><span class="badge badge-primary">Religiões</span> {% for x in data["religion"]["value"].split("|"): %} <span class="badge badge-secondary">{{x}}</span> {% endfor %}</p>
+        {% endif %}
+        {% if data["entity"]["value"]: %}
+        <p><span class="badge badge-primary">Entidades</span> {% for x in data["entity"]["value"].split("|"): %} <span class="badge badge-secondary">{{x}}</span> {% endfor %}</p>
+        {% endif %}
+        {% if data["politicalParty"]["value"]: %}
+        <p><span class="badge badge-primary">Partidos</span> {% for x in data["politicalParty"]["value"].split("|"): %} <span class="badge badge-secondary">{{x}}</span> {% endfor %}</p>
+        {% endif %}
+        {% if data["ethnicity"]["value"]: %}
+        <p><span class="badge badge-primary">Étnia</span> {% for x in data["ethnicity"]["value"].split("|"): %} <span class="badge badge-secondary">{{x}}</span> {% endfor %}</p>
+        {% endif %}
+        {% if data["month"]["value"] or data["weekday"]["value"]: %}
+        <p><span class="badge badge-primary">Tempo</span> {% for x in data["month"]["value"].split("|"): %} <span class="badge badge-secondary">{{x}}</span> {% endfor %}{% for x in data["weekday"]["value"].split("|"): %} <span class="badge badge-secondary">{{x}}</span> {% endfor %}</p>
+        {% endif %}
+        {% if data["keyword"]["value"]: %}
+        <p><span class="badge badge-primary">Palavras-chave</span> {% for x in data["keyword"]["value"].split("|"): %} <span class="badge badge-secondary">{{x}}</span> {% endfor %}</p>
+        {% endif %}
+      </div>
+
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-primary" onclick="downloadHtml('id-{{data['id']['value'].replace('.','-')}}')">Download HTML</button>
+        <button type="button" class="btn btn-primary" onclick="downloadTxt('id-{{data['id']['value'].replace('.','-')}}')">Download TXT</button>
+      </div>
+
+</div>
+</div>
+
+
+
+</div><!-- /.container-fluid -->
+</section>
+
+
+
+{% block end %}
+
+<script type="text/javascript">
+
+function downloadInnerHtml(filename, elId, mimeType) {
+    if (mimeType == "text/plain") {
+        var elHtml = document.getElementById(elId).innerText.replace(/Close\sDownload HTML\sDownload TXT/g, '').replace(/×\s/i, '');
+    }
+    else {
+        var elHtml = document.getElementById(elId).innerHTML.replace(/<button.*<\/button>/g, '');
+    }
+    //$.parseHTML( elHtml )
+    //var p = html(elHtml).find(".btn").remove();
+    //alert(p);
+
+    var link = document.createElement('a');
+    mimeType = mimeType || 'text/plain';
+
+    link.setAttribute('download', filename);
+    link.setAttribute('href', 'data:' + mimeType + ';charset=utf-8,' + encodeURIComponent(elHtml));
+    link.click(); 
+}
+
+function downloadHtml(id) {
+    downloadInnerHtml(id+".html", id,'text/html');
+}
+
+function downloadTxt(id) {
+    downloadInnerHtml(id+".txt", id,'text/plain');
+}
+
+$(".artigo").each(function( index ) {
+    if ($(this).find(".badge-primary").length == 0) {
+        $(this).find(".referencias").hide();
+    }
+});
+</script>
+
+
+
+{% endblock %}
+
+{% endblock %}

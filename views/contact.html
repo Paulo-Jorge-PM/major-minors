@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<section class="content">
+<div class="container-fluid pr-5 pl-5">
+
+<div class="contact">
+ <div class="container bootstrap snippet">
+    <div class="profile card">
+        <div class="profile-body">
+            <div class="profile-bio">
+                <div class="row">
+                    <div class="col-md-5 text-center">
+                        <img class="img-thumbnail md-margin-bottom-10" src="{{ url_for('static', filename='images/photo_eu2.png') }}" style="height: 216px;"  alt="">
+                    </div>
+                    <div class="col-md-7">
+                        <h2>Paulo Martins</h2>
+                        <span><strong>Informático / Investigação</strong></span>
+                        <hr>
+                        <p>Email: paulo.jorge.pm@ilch.uminho.pt</p>
+                        <p>CV: <a href="http://www.paulojorgepm.net/cv" target="_blank"> Link</a>
+                            <br />
+                        Ciência Vitae: <a href="https://www.cienciavitae.pt/pt/E21C-96CA-84E1" target="_blank">Link</a>
+                        <br />
+                        Portfólio: <a href="http://www.paulojorgepm.net/portfolio" target="_blank"> http://www.paulojorgepm.net/portfolio</a></p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+ <div class="container bootstrap snippet">
+    <div class="profile card">
+        <div class="profile-body">
+            <div class="profile-bio">
+                <div class="row">
+                    <div class="col-md-5 text-center">
+                        <img class="img-thumbnail md-margin-bottom-10" src="{{ url_for('static', filename='images/leandro.png') }}" style="width: 50%;" alt="">
+                    </div>
+                    <div class="col-md-7">
+                        <h2>Leandro Costa</h2>
+                        <span><strong>Engenheiro Informático</strong></span>
+                        <hr>
+                        <p>Email: leandro.costa16@hotmail.com</p>
+                        <p>Apresentação: <a href="{{ url_for('static', filename='documents/Resume-leandro.pdf') }}" target="_blank">Link</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+ <div class="container bootstrap snippet">
+    <div class="profile card">
+        <div class="profile-body">
+            <div class="profile-bio">
+                <div class="row">
+                    <div class="col-md-5 text-center">
+                        <img class="img-thumbnail md-margin-bottom-10" src="{{ url_for('static', filename='images/jcr-keep.jpg') }}" style="height: 216px;" alt="">
+                    </div>
+                    <div class="col-md-7">
+                        <h5>Orientador:</h5>
+                        <h2>José Carlos Ramalho</h2>
+                        <span><strong>Professor</strong></span>
+                        <hr>
+                        <p>Department of Informatics UM / CCTC Research Center</p>
+                        <p>Website: <a href="https://www.di.uminho.pt/~jcr/" target="_blank">Link</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<br>
+
+
+</div><!-- /.container-fluid -->
+</section>
+
+
+<script>
+
+</script>
+
+{% endblock %}

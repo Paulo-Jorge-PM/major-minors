@@ -1,0 +1,373 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;500;800&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/3d9627186b.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles-minorias.css') }}" type="text/css">
+{% endblock %}
+
+{% block content %}
+<div id="minorias">
+
+
+    <div class="bgimg africanos">
+        <span>AFRICANOS</span>
+    </div>
+
+    <div class="auto-responsive-container">
+        <div class="years-text">
+            <h1 class="orange-title">Menções em notícias ao longo dos anos</h1>
+            <p>Membros de uma outrora comunidade africana estão cada vez mais presentes nos países "brancos". Esta migração e mistura de raças numa mesma sociedade gera algumas situações de conflito e descriminação. Com o aumento distribuição da comunidade negra pelo mundo, aumenta também a quantidade de situações que levam à criação de novos artigos de imprensa.</p>
+        </div>
+        <div class="years-graph">
+            <canvas id="yearsChart"></canvas>
+        </div>
+    </div>
+
+    <div class="in-portugal-container africanos">
+        <div class="portugal-map">
+            <img src="{{ url_for('static', filename='images/minorias/portugal-map.PNG') }}" alt="Portugal Map">
+        </div>
+        <div class="in-portugal-content">
+            <div class="years-text">
+                <span style="font-size: 13px; color: white;">Contextualização</span>
+                <h1 class="white-title">Africanos em Portugal</h1>
+                <p style="color: white;">Ainda hoje existem manifestações de racismo na sociedade portuguesa. Existe ainda dificuldade no reconhecimento de que as manifestações de racismo são obstáculos aos direitos dos negros em Portugal. Um estudo europeu conclui que a população Africana que vive em Portugal tende a ser mais pobre, ter empregos mais precários e a viver com mais frequência em casas de más condições habitacionais. O estudo revela ainda que 36% dos negros parados em operações STOP no último ano pela polícia, em Portugal, sentem que tal aconteceu por causa da sua cor da pele.</p>
+            </div>
+        </div>
+        <div class="cigano-triangle">
+            <img src="{{ url_for('static', filename='images/minorias/africanos-triangle.PNG') }}" alt="Africanos">
+        </div>
+    </div>
+
+    <div class="auto-responsive-container">
+        <div class="sentiment-graph">
+            <canvas id="sentimentRadarChart"></canvas>
+        </div>
+        <div class="sentiment-text">
+            <h1 class="orange-title">Análise do sentimento</h1>
+            <p>Foram analisados todos os títulos das notícias relacionadas com africanos e foi extraído o seu "sentimento". A análise de sentimento é usada para determinar o tom emocional associado a sequências de palavras. O intuito desta análise, neste contexto, é o de permitir extrair conclusões sobre qual o carácter das notícias que maioritarimente incidem sobre cada uma das minorias. No caso dos africanos, a maioria das notícias possui um carácter negativo.</p>
+        </div>
+    </div>
+
+    <div class="facts orange-background">
+        <div class="title-center">
+            <h1 class="white-title">Factos sobre a comunidade negra</h1>
+        </div>
+        <div class="fact">
+            <h2>Investigação revela que 38% das pessoas com descendência africana a viver em Portugal têm muita dificuldade em pagar as contas. <i class="fas fa-check" style="color:green";></i></h2>
+            <p>TSF Notícias, 2018</p>
+        </div> 
+        <div class="fact right">
+            <h2><i class="fas fa-check" style="color:green";></i> Um em cada 73 cidadãos dos PALOP está preso versus um em cada 736 homens portugueses.</i></h2>
+            <p style="text-align: right;">Público, 2017</p>
+        </div> 
+        <div class="fact">
+            <h2>50% dos negros em Portugal têm empregos que envolvem esforços físicos. <i class="fas fa-check" style="color:green";></i></h2>
+            <p>TSF Notícias, 2018</p>
+        </div> 
+        <div class="fact right">
+            <h2><i class="fas fa-check" style="color:green";></i> A percentagem de portugueses proprietários de casas é de 75%, comparando com os 35% de cidadãos de PALOP.</i></h2>
+            <p style="text-align: right;">Público, 2017</p>
+        </div>  
+    </div>
+
+
+    <div class="title-center">
+        <h1 class="orange-title">Distribuição geográfica dos locais mais mencionados</h1>
+    </div>
+
+    <div class="auto-responsive-container geographic-distribution">
+        <div>
+            <img class="separated-map-img" src="{{ url_for('static', filename='images/minorias/portugal-map-separated.png') }}" alt="">
+            {% for row in countByCities: %}{% if loop.index != 1: %}<br><br><br>{% endif %}<p class="map-zones"><b>{{row["city"]["value"]}}</b><br>{{row["articles"]["value"]}} Menções</p>{% endfor %}
+        </div>
+        <div>
+            <img class="world-img" src="{{ url_for('static', filename='images/minorias/earth-vector-icon-png_296088.jpg') }}" alt="">
+            {% for row in countByCountry: %}{% if loop.index != 1: %}<br><br><br>{% endif %}<p class="map-zones"><b>{{row["country"]["value"]}}</b><br>{{row["articles"]["value"]}} Menções</p>{% endfor %}
+        </div>
+    </div>
+
+    <div class="geographic-info">
+        
+        <div class="divider div-transparent">   </div>
+    </div>
+
+    <div class="title-center">
+        <h1 class="orange-title">Algumas figuras relevantes na defesa dos direitos da comunidade negra</h1>
+    </div>
+
+    <div class="relevant-people-container red">
+        <div class="relevant-person">
+            <img src="{{ url_for('static', filename='images/minorias/africanos-marthin.PNG') }}" alt="Marthin Luther King Jr.">
+            <h2>Marthin Luther King Jr.</h2>
+            <span style="color: grey;">Ativista Negro</span>
+        </div>
+        <div class="relevant-person">
+            <img src="{{ url_for('static', filename='images/minorias/africanos-obama.PNG') }}" alt="Barack Obama">
+            <h2>Barack Obama</h2>
+            <span style="color: grey;">1º presidente negro dos EUA</span>
+        </div>
+        <div class="relevant-person">
+            <img src="{{ url_for('static', filename='images/minorias/africanos-rosa.PNG') }}" alt="Rosa Parks">
+            <h2>Rosa Parks</h2>
+            <span style="color: grey;">Ativista Negra</span>
+        </div>
+        <div class="relevant-person">
+            <img src="{{ url_for('static', filename='images/minorias/africanos-malcolm.PNG') }}" alt="Malcolm X">
+            <h2>Malcolm X</h2>
+            <span style="color: grey;">Ativista Negro</span>
+        </div>
+        
+    </div>
+
+
+
+    <div class = "pizza-container africanos">
+        <div class="pieID--operations pie-chart--wrapper" id="lol">
+            <h1>Palavras-chave mais mencionadas</h1>
+            <div class="pie-chart">
+                <div class="pie-chart__pie"></div>
+                <ul class="pie-chart__legend">
+                    {% for row in countByKeywords: %}<li><em>{{row["keyword"]["value"]}}</em><span>{{row["articles"]["value"]}}</span></li>{% endfor %}
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <div class = "title-most-mentioned orange-wave-background">
+        <h1 class="white-title">Figuras com maior número de menções em notícias</h1>
+    </div>
+
+    <div class="most-mentioned-container orange-wave-background">
+        
+        {% for row in countByPeople: %}
+        <div class = "famous-person">
+            <img class ="famous-pic image-cropper" src="{{ url_for('static', filename='images/persons/'+row['person']['value'].lower().replace(' ','_')+'.jpg') }}">
+            <h2>{{row["person"]["value"]}}</h2>
+            <p class="famous-job">{% if "job" in row: %}{{row["job"]["value"]}}{% endif %}</p>
+            <p class="n-mentions">Menções: {{row["articles"]["value"]}}</p>
+        </div>
+        {% endfor %}
+
+    </div>
+
+    <div class = "title-most-mentioned orange-wave-background">
+        <h1 class="white-title">Partidos políticos mencionados em notícias</h1>
+    </div>
+
+    <div class="most-mentioned-container orange-wave-background">
+        
+        {% for row in countByPoliticalParty: %}
+        <div class = "partido">
+            <img class ="famous-pic image-cropper" src="{{ url_for('static', filename='images/partidos/'+row['party']['value'].lower().replace(' ','_').replace('!','')+'.png') }}">
+            <h2>{{row["party"]["value"].upper()}}</h2>
+            <p class="n-mentions">Menções: {{row["articles"]["value"]}}</p>
+        </div>
+        {% endfor %} 
+        
+        
+    </div>
+
+    <div class = "title-most-relevant">
+        <img class="wave-P" src="{{ url_for('static', filename='images/minorias/P-africanos.png') }}" style="width:100%">
+        <h1 style="color: #e73c5c;">Algumas notícias relevantes</h1>
+    </div>
+
+    <div class="auto-responsive-container noticias-container ">
+        {% for row in topArticles: %}
+        <div class="noticia-card">
+            <img src="{{ url_for('static', filename='images/articles/'+articleImages[loop.index-1])}}" style="width: 100%; height: 150px; object-fit: cover; object-position: 0 40%; filter: grayscale(70%);">
+            <h5>{{row["title"]["value"]}}</h5>
+            <p>{% if row["preview"]["value"]: %}{{row["preview"]["value"][:200]}}...{% else: %}{{row["text"]["value"][:200]}}...{% endif %}</p>
+        </div>
+        {% endfor %}        
+    </div>
+
+    <div class="see-more-news">
+        <a href="{{ url_for('articles.articles')}}/{{minority}}">Ver todas</a>
+    </div>
+
+
+
+</div>
+
+
+{% block end %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    
+<script>
+function isScrolledIntoView(elem)
+{
+    var docViewTop = $(window).scrollTop();
+    var docViewBottom = docViewTop + $(window).height();
+
+    var elemTop = $(elem).offset().top;
+    var elemBottom = elemTop + $(elem).height();
+
+    return ((elemTop <= docViewBottom) && (elemBottom >= docViewTop));
+}
+
+$(window).scroll(function() {
+    if (isScrolledIntoView('#yearsChart')) {
+        if (inView) { return; }
+        inView = true;
+        var ctx = document.getElementById('yearsChart').getContext('2d');
+
+        var myBarChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: [{% for row in articlesByYear: %}{% if loop.index != 1 %},{% endif %}'{{row["year"]["value"]}}'{% endfor %}],
+            datasets: [{
+                label: 'Nº de Notícias',
+                backgroundColor: 'rgb(206,86,142)', //received as argument
+                borderColor: 'rgb(206,86,142)', //received as argument
+                data: [{% for row in articlesByYear: %}{% if loop.index != 1 %},{% endif %}{{row["articles"]["value"]}}{% endfor %}] //received as argument
+            }]
+          },  
+          options: {}
+        });
+    } else {
+        inView = false;  
+    }
+});
+
+
+$(window).scroll(function() {
+    if (isScrolledIntoView('#sentimentRadarChart')) {
+        if (inViewRadar) { return; }
+        inViewRadar = true;
+        var ctx = document.getElementById('sentimentRadarChart').getContext('2d');
+
+        var myRadarChart = new Chart(ctx, {
+          type: 'radar',
+          data: {
+            labels: ['Positivo', 'Negativo', 'Neutro'],
+            datasets: [{
+                label: 'Sentimento',
+                backgroundColor: 'rgb(206,86,142)',
+                data: [{{ countPositive }}, {{ countNegative }}, {{ countNeutral }}]
+            }]
+          },  
+          options: {}
+        });
+    } else {
+        inViewRadar = false;  
+    }
+});
+
+function sliceSize(dataNum, dataTotal) {
+  return (dataNum / dataTotal) * 360;
+}
+
+function addSlice(id, sliceSize, pieElement, offset, sliceID, color) {
+  $(pieElement).append("<div class='slice "+ sliceID + "'><span></span></div>");
+  var offset = offset - 1;
+  var sizeRotation = -179 + sliceSize;
+
+  $(id + " ." + sliceID).css({
+    "transform": "rotate(" + offset + "deg) translate3d(0,0,0)"
+  });
+
+  $(id + " ." + sliceID + " span").css({
+    "transform"       : "rotate(" + sizeRotation + "deg) translate3d(0,0,0)",
+    "background-color": color
+  });
+}
+
+function iterateSlices(id, sliceSize, pieElement, offset, dataCount, sliceCount, color) {
+  var
+    maxSize = 179,
+    sliceID = "s" + dataCount + "-" + sliceCount;
+
+  if( sliceSize <= maxSize ) {
+    addSlice(id, sliceSize, pieElement, offset, sliceID, color);
+  } else {
+    addSlice(id, maxSize, pieElement, offset, sliceID, color);
+    iterateSlices(id, sliceSize-maxSize, pieElement, offset+maxSize, dataCount, sliceCount+1, color);
+  }
+}
+
+
+
+
+
+
+function createPie(id) {
+  var
+    listData      = [],
+    listTotal     = 0,
+    offset        = 0,
+    i             = 0,
+    pieElement    = id + " .pie-chart__pie"
+    dataElement   = id + " .pie-chart__legend"
+
+    color         = [
+      "rgb(187,228,255)",
+      "rgb(2,166,209)",
+      "rgb(5,116,206)",
+      "rgb(239,71,111)",
+      "rgb(255,209,102)",
+      "rgb(6,214,160)",
+      "rgb(172,78,221)",
+      "rgb(255,140,62)",
+      "rgb(0,188,212)",
+      "rgb(194,24,91)",
+      "rgb(230,74,25)",
+      "rgb(103,58,183)"
+    ];
+
+  color = shuffle( color );
+
+  $(dataElement+" span").each(function() {
+    listData.push(Number($(this).html()));
+  });
+
+  for(i = 0; i < listData.length; i++) {
+    listTotal += listData[i];
+  }
+
+  for(i=0; i < listData.length; i++) {
+    var size = sliceSize(listData[i], listTotal);
+    iterateSlices(id, size, pieElement, offset, i, 0, color[i]);
+    $(dataElement + " li:nth-child(" + (i + 1) + ")").css("border-color", color[i]);
+    offset += size;
+  }
+}
+
+function shuffle(a) {
+    var j, x, i;
+    for (i = a.length; i; i--) {
+        j = Math.floor(Math.random() * i);
+        x = a[i - 1];
+        a[i - 1] = a[j];
+        a[j] = x;
+    }
+
+    return a;
+}
+
+function createPieCharts() {
+  createPie('.pieID--region' );
+  createPie('.pieID--operations' );
+}
+
+
+
+
+
+$(window).scroll(function() {
+    if (isScrolledIntoView('#lol')) {
+        if (inViewPizza) { return; }
+        inViewPizza = true;
+        createPieCharts();
+    } else {
+        inViewPizza = false;  
+    }
+});
+</script>
+
+{% endblock %}
+
+{% endblock %}

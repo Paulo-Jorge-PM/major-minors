@@ -1,0 +1,284 @@
+{% extends "layout.html" %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='dynatable/jquery.dynatable.css') }}" type="text/css">
+<style type="text/css">
+/*.clear {
+    clear:both;    
+}*/
+.btn-info {
+    margin-right:15px;
+    text-transform:uppercase;
+    padding:10px;
+    display:block;
+    float:left;
+}
+.btn-info span {
+    display:block;
+    text-decoration:none;
+    width:100%;
+    height:100%;
+    color:#fff;
+}
+.more.label {
+    float:right;    
+}
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+<section class="content">
+<div class="container-fluid pr-5 pl-5">
+
+<div class="btn-group" style="margin-bottom:20px;">
+  <a class="btn btn-default{% if minority not in minorias: %} btn-active{% endif %}" role="button" href="{{ url_for('articles.articles') }}">
+    Todos
+  </a>
+  {% for minoria in minorias: %}
+  <a class="btn btn-default{% if minority == minoria: %} btn-active{% endif %}" href="{{ url_for('articles.articles', minority=minoria) }}" >
+    {{minoria.capitalize()}}
+  </a>
+  {% endfor %}
+
+  <button type="button" class="btn btn-secondary" data-toggle="popover" title="Algoritmo de pontuação" data-content="O valor junto a cada minoria representa o peso da referência no artigo: quanto mais alto o valor maior a probailidade da relação. Desenvolvemos um algoritmo que pontua de acordo com vários critérios (palavras-chave referidas, posicionamento, cruzamento com outras referências, etc.), sendo 2 o valor mínimo e 21 o máximo."><i class="nav-icon fas fa-question"></i></button>
+</div>
+
+{{ pagination.links }}
+
+{% for row in data: %}
+<div class="card article artigo">
+  <h4 class="card-header">{{row["title"]["value"]}}</h4>
+  <div class="card-body">
+    <p class="card-text">{% if hasPreview(row) %}{{row["preview"]["value"]}} (...){% else: %}{{row["text"]["value"][:620]}}... (etc.){% endif %}</p>
+        <div>
+            <div class="more label"><a href="#id-{{row['id']['value'].replace('.','-')}}" data-toggle="modal" data-target="#id-{{row['id']['value'].replace('.','-')}}">Ver metadados</a></div>
+            <div class="tags">
+                {% for m in row["minorityPriority"]["value"].split("|"): %}<span class="badge badge-danger">{{m.split("#")[0].capitalize()}} <span class="badge badge-light">{{m.split("#")[1]}}</span></span> {% endfor %}
+                <span class="badge badge-secondary">{{row["dataPub"]["value"].split('T')[0]}}</span>
+                <span class="badge badge-info">Sentimento <span class="badge badge-light">{{row["sentiment"]["value"][:5]}}</span></span>
+                <!--<span class="badge referencias" style="margin-left:20px;">REFERÊNCIAS:</span>-->
+                {% if row["person"]["value"]: %}
+        <span class="badge badge-primary">Pessoas</span>
+        {% endif %}
+        {% if row["continent"]["value"]: %}
+        <span class="badge badge-primary">Continentes</span>
+        {% endif %}
+        {% if row["country"]["value"]: %}
+        <span class="badge badge-primary">Países</span>
+        {% endif %}
+        {% if row["city"]["value"]: %}
+        <span class="badge badge-primary">Cidades</span>
+        {% endif %}
+        {% if row["otherPlace"]["value"]: %}
+        <span class="badge badge-primary">Outros Lugares</span>
+        {% endif %}
+        {% if row["politicalParty"]["value"]: %}
+        <span class="badge badge-primary">Partidos</span>
+        {% endif %}
+        {% if row["religion"]["value"]: %}
+        <span class="badge badge-primary">Religiões</span>
+        {% endif %}
+        {% if row["entity"]["value"]: %}
+        <span class="badge badge-primary">Entidades</span>
+        {% endif %}
+        {% if row["ethnicity"]["value"]: %}
+        <span class="badge badge-primary">Étnia</span>
+        {% endif %}
+        {% if row["month"]["value"] or row["weekday"]["value"]: %}
+        <span class="badge badge-primary">Tempo</span>
+        {% endif %}
+        {% if row["tvChannel"]["value"]: %}
+        <span class="badge badge-primary">TV</span>
+        {% endif %}
+        {% if row["sport"]["value"]: %}
+        <span class="badge badge-primary">Desportos</span>
+        {% endif %}
+        {% if row["carBrand"]["value"]: %}
+        <span class="badge badge-primary">Carros</span>
+        {% endif %}
+        {% if row["brand"]["value"]: %}
+        <span class="badge badge-primary">Marcas</span>
+        {% endif %}
+        {% if row["footballClub"]["value"]: %}
+        <span class="badge badge-primary">Clubes</span>
+        {% endif %}
+        {% if row["keyword"]["value"]: %}
+        <span class="badge badge-primary">Palavras-chave</span>
+        {% endif %}
+                <!--<span class="btn-info"><a href="#">energy</a></span><span class="btn-info"><a href="#">reality</a></span><span class="btn-info"><a href="#">world</a></span>-->
+                <!--<span class="btn btn-primary nohover active">Pessoas</span> <span class="btn btn-primary nohover active">Animais</span>-->
+        <span class="jornal"><img src="{{ url_for('static', filename='images/jornais/publicov2.png') }}"><span class="badge badge-black">Jornal Público</span></span>
+            </div><!--tags-->
+        </div>
+  </div>
+</div>
+
+<!-- MODAL WINDOW -->
+<div id="id-{{row['id']['value'].replace('.','-')}}" class="modal fade artigo" tabindex="-1" role="dialog" aria-labelledby="Artigo" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLongTitle"><b><em>{{row["title"]["value"]}}</em></b></h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <p><b>MINORIA(S):</b> {% for m in row["minorityPriority"]["value"].split("|"): %}<span class="badge badge-danger">{{m.split("#")[0].capitalize()}} <span class="badge badge-light">Pontuação: {{m.split("#")[1]}}</span></span></span> {% endfor %} &nbsp;&nbsp;|&nbsp;&nbsp; <span class="badge badge-info">Sentimento <span class="badge badge-light">{{row["sentiment"]["value"][:5]}}</span></span></p>
+        <hr>
+        <p><b>DATA:</b> {{row["dataPub"]["value"].split('T')[0]}} | <span class="jornal"><img src="{{ url_for('static', filename='images/jornais/publicov2.png') }}"><span class="badge badge-black">Jornal Público</span></span></p>
+        <hr>
+        <p class="text-truncate"><b>URL:</b> <a href="{{row['link']['value'].replace('noFrame/replay','wayback')}}" target="_blank">{{row['link']['value'].replace('noFrame/replay','wayback')}}</a></p>
+
+        {% if row["subTitle"]: %}
+        <hr>
+        <p><b>Subtítulo:</b> {{row["subTitle"]["value"]}}</p>
+        {% endif %}
+        {% if row["preview"]: %}
+        <hr>
+        <p><b>SUMÁRIO:</b> {{row["preview"]["value"]}}</p>
+        {% endif %}
+
+        <hr>
+        <p><b>TEXTO:</b> {{row["text"]["value"]}}</p>
+        <hr>
+        <p class="referencias"><b>REFERÊNCIAS:</b></p>
+        {% if row["person"]["value"]: %}
+        <p><span class="badge badge-primary">Pessoas</span> {% for x in row["person"]["value"].split("|"): %} <span class="badge badge-secondary">{{x}}</span> {% endfor %}</p>
+        {% endif %}
+        {% if row["continent"]["value"]: %}
+        <p><span class="badge badge-primary">Continentes</span> {% for x in row["continent"]["value"].split("|"): %} <span class="badge badge-secondary">{{x}}</span> {% endfor %}</p>
+        {% endif %}
+        {% if row["country"]["value"]: %}
+        <p><span class="badge badge-primary">Países</span> {% for x in row["country"]["value"].split("|"): %} <span class="badge badge-secondary">{{x}}</span> {% endfor %}</p>
+        {% endif %}
+        {% if row["city"]["value"]: %}
+        <p><span class="badge badge-primary">Cidades</span> {% for x in row["city"]["value"].split("|"): %} <span class="badge badge-secondary">{{x}}</span> {% endfor %}</p>
+        {% endif %}
+        {% if row["otherPlace"]["value"]: %}
+        <p><span class="badge badge-primary">Outros Lugares</span> {% for x in row["otherPlace"]["value"].split("|"): %} <span class="badge badge-secondary">{{x}}</span> {% endfor %}</p>
+        {% endif %}
+        {% if row["politicalParty"]["value"]: %}
+        <p><span class="badge badge-primary">Partidos</span> {% for x in row["politicalParty"]["value"].split("|"): %} <span class="badge badge-secondary">{{x}}</span> {% endfor %}</p>
+        {% endif %}
+        {% if row["religion"]["value"]: %}
+        <p><span class="badge badge-primary">Religiões</span> {% for x in row["religion"]["value"].split("|"): %} <span class="badge badge-secondary">{{x}}</span> {% endfor %}</p>
+        {% endif %}
+        {% if row["entity"]["value"]: %}
+        <p><span class="badge badge-primary">Entidades</span> {% for x in row["entity"]["value"].split("|"): %} <span class="badge badge-secondary">{{x}}</span> {% endfor %}</p>
+        {% endif %}
+        {% if row["ethnicity"]["value"]: %}
+        <p><span class="badge badge-primary">Étnia</span> {% for x in row["ethnicity"]["value"].split("|"): %} <span class="badge badge-secondary">{{x}}</span> {% endfor %}</p>
+        {% endif %}
+        {% if row["month"]["value"] or row["weekday"]["value"]: %}
+        <p><span class="badge badge-primary">Tempo</span> {% for x in row["month"]["value"].split("|"): %} <span class="badge badge-secondary">{{x}}</span> {% endfor %}{% for x in row["weekday"]["value"].split("|"): %} <span class="badge badge-secondary">{{x}}</span> {% endfor %}</p>
+        {% endif %}
+
+        {% if row["tvChannel"]["value"]: %}
+        <p><span class="badge badge-primary">Canais de TV</span> {% for x in row["tvChannel"]["value"].split("|"): %} <span class="badge badge-secondary">{{x.upper()}}</span> {% endfor %}</p>
+        {% endif %}
+        {% if row["sport"]["value"]: %}
+        <p><span class="badge badge-primary">Desportos</span> {% for x in row["sport"]["value"].split("|"): %} <span class="badge badge-secondary">{{x}}</span> {% endfor %}</p>
+        {% endif %}
+        {% if row["carBrand"]["value"]: %}
+        <p><span class="badge badge-primary">Carros</span> {% for x in row["carBrand"]["value"].split("|"): %} <span class="badge badge-secondary">{{x.upper()}}</span> {% endfor %}</p>
+        {% endif %}
+        {% if row["brand"]["value"]: %}
+        <p><span class="badge badge-primary">Marcas</span> {% for x in row["brand"]["value"].split("|"): %} <span class="badge badge-secondary">{{x.upper()}}</span> {% endfor %}</p>
+        {% endif %}
+        {% if row["footballClub"]["value"]: %}
+        <p><span class="badge badge-primary">Clube de futebol</span> {% for x in row["footballClub"]["value"].split("|"): %} <span class="badge badge-secondary">{{x}}</span> {% endfor %}</p>
+        {% endif %}
+
+        {% if row["keyword"]["value"]: %}
+        <p><span class="badge badge-primary">Palavras-chave</span> {% for x in row["keyword"]["value"].split("|"): %} <span class="badge badge-secondary">{{x}}</span> {% endfor %}</p>
+        {% endif %}
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="downloadHtml('id-{{row['id']['value'].replace('.','-')}}')">Download HTML</button>
+        <button type="button" class="btn btn-primary" onclick="downloadTxt('id-{{row['id']['value'].replace('.','-')}}')">Download TXT</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endfor %}
+
+{{ pagination.links }}
+
+
+
+</div><!-- /.container-fluid -->
+</section>
+
+
+
+{% block end %}
+
+<script type="text/javascript">
+
+function downloadInnerHtml(filename, elId, mimeType) {
+    if (mimeType == "text/plain") {
+        var elHtml = document.getElementById(elId).innerText.replace(/Close\sDownload HTML\sDownload TXT/g, '').replace(/×\s/i, '');
+    }
+    else {
+        var elHtml = document.getElementById(elId).innerHTML.replace(/<button.*<\/button>/g, '');
+    }
+    //$.parseHTML( elHtml )
+    //var p = html(elHtml).find(".btn").remove();
+    //alert(p);
+
+    var link = document.createElement('a');
+    mimeType = mimeType || 'text/plain';
+
+    link.setAttribute('download', filename);
+    link.setAttribute('href', 'data:' + mimeType + ';charset=utf-8,' + encodeURIComponent(elHtml));
+    link.click(); 
+}
+
+function downloadHtml(id) {
+    downloadInnerHtml(id+".html", id,'text/html');
+}
+
+function downloadTxt(id) {
+    downloadInnerHtml(id+".txt", id,'text/plain');
+}
+
+/* Hover li - get link from href and make it global in the li - if js disabled link works normal but only in the text */
+$(document).ready(function() {
+    //$('.link').css('display','none');
+    $('.article').hover(function () {
+        bgcolor = $(this).css("background-color");
+        $(this).css({backgroundColor: "#EAB974", cursor: "pointer"});
+        $(this).click(function() {
+            //window.location=$(this).find("a").attr("href");
+            var id = $(this).find("a").attr("href");
+            //alert(id);
+            $(id).modal();
+            return false;
+        });
+    },function() {
+        $(this).css({backgroundColor: bgcolor});
+    });
+});
+
+
+$(".artigo").each(function( index ) {
+    if ($(this).find(".badge-primary").length == 0) {
+        $(this).find(".referencias").hide();
+    }
+});
+
+
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
+
+</script>
+
+
+
+{% endblock %}
+
+{% endblock %}

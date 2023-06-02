@@ -1,0 +1,285 @@
+{% extends "layout.html" %}
+{% block head %}
+<!--<link rel="stylesheet" href="{{ url_for('static', filename='css/tln.min.css') }}" type="text/css">
+<script src="{{ url_for('static', filename='js/tln.min.js') }}"></script>-->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dataTables.bootstrap.css') }}" type="text/css">
+<style type="text/css">
+.examples {
+float:right;
+}
+.examples button {
+margin-left: 5px;
+}
+.examples button:first-child {
+margin-right: 0px;
+}
+#query {color:#333333;}
+#table-container{
+
+/*overflow-x: scroll;
+overflow-y: hidden;
+white-space: nowrap;*/
+  
+
+  /*overflow: auto;
+  white-space: nowrap;*/
+  /*overflow-x: scroll;*/
+}
+#table-container-table {
+background:#f2f2f2;
+}
+</style>
+
+<script src="{{ url_for('static', filename='codemirror/lib/codemirror.js') }}"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='codemirror/lib/codemirror.css') }}">
+<script src="{{ url_for('static', filename='codemirror/mode/javascript/javascript.js') }}"></script>
+
+<script src="{{ url_for('static', filename='codemirror/addon/edit/matchbrackets.js') }}"></script>
+ <script src="{{ url_for('static', filename='codemirror/mode/sparql/sparql.js') }}"></script>
+
+{% endblock %}
+
+{% block content %}
+
+<section class="content">
+<div class="container-fluid pr-5 pl-5">
+
+<form action="{{ url_for('sparql.sparql') }}" method="POST">
+<div class="md-form">
+<i class="fas fa-pencil-alt prefix"></i> &nbsp;&nbsp; <label for="form10">Query SPARQL - Introduza uma query de acordo com a especificação da ontologia</label>
+</div>
+
+<div style="">        
+<textarea id="query" name="query" class="md-textarea">{% if activeQuery: %}{{activeQuery}}{% else: %}select ?title ?minority where {
+    ?article rdf:type :Article .
+    ?article :title ?title .
+    ?article :referesMinority ?m .
+    ?m :minority ?minority .
+    FILTER (CONTAINS(?minority , "mulheres")) .
+}{% endif %}</textarea>
+</div>
+
+<br>
+<div style="margin-left:45px;">
+
+<script type="text/javascript">
+  var editor = CodeMirror.fromTextArea(document.getElementById("query"), {
+    mode: "application/sparql-query",
+    lineNumbers: true,
+    styleActiveLine: true,
+    matchBrackets: true,
+    //theme: 'eclipse'
+  });
+</script>
+
+<p><b>Base de Dados:</b> <select name="corpus"><option value="minorias"{% if corpus=='minorias':%} selected{% endif %}><i>Corpus</i> Minorias</option><option value="indiferenciado"{% if corpus=='indiferenciado':%} selected{% endif %}><i>Corpus</i> Indiferenciado</option></select></p>
+
+<p class=""><input type="submit" name="submit" class="btn btn-primary btn-lg" style="margin-top:10px;" /> <span class="examples"><button class="btn btn-dark btn-sm" type="button" onclick="changeCode(0)">Exemplo 1</button> <button class="btn btn-dark btn-sm" type="button" onclick="changeCode(1)">Exemplo 2</button> <!--<button class="btn btn-dark btn-sm" type="button" onclick="changeCode(2)">Exemplo 3</button>--> <button class="btn btn-dark btn-sm" type="button" onclick="changeCode(3)">Exemplo 3</button></span></p>
+</div>
+</form>
+
+<br>
+<hr>
+<br>
+
+{% if results: %}
+<div id="results" class="card article">
+<h4 class="card-header" style="background:#333333;color:#ffffff;">DADOS OBTIDOS:</h4>
+    <div class="card-body">
+        <p><a href="{{ url_for('api.sparql')}}?output=csv&query={{queryEncoded}}" class="btn btn-primary">DOWNLOAD CSV</a> <a href="{{ url_for('api.sparql')}}?output=json&query={{queryEncoded}}" class="btn btn-primary">DOWNLOAD JSON</a> <a href="{{ url_for('api.sparql')}}?output=xml&query={{queryEncoded}}" class="btn btn-primary">DOWNLOAD XML</a></p>
+        <p style="color:gray;font-size:12px;">*Dados infra limitados a 50 entradas para não sobrecarregar o <i>browser</i>. Versão completa no <i>download</i></p>
+        <div id="table-container" class="card-text"><pre id="pre-container">{{ results }}</pre></div>
+        <p style="color:gray;font-size:16px;" class="pl-3"><b>...</b> (versão <i>web</i> limitada a 50 resultados. Descarregue para obter os dados completos)</p>
+        <p><a href="{{ url_for('api.sparql')}}?output=csv" class="btn btn-primary">DOWNLOAD CSV</a> <a href="{{ url_for('api.sparql')}}?output=json" class="btn btn-primary">DOWNLOAD JSON</a> <a href="{{ url_for('api.sparql')}}?output=xml" class="btn btn-primary">DOWNLOAD XML</a></p>
+    </div>
+</div>
+{% endif %}
+
+<br><br>
+
+<p><strong>Especificações <em>SPARQL</em>:</strong> <a href="https://www.w3.org/TR/sparql11-query/" target="_blank">https://www.w3.org/TR/sparql11-query/</a></p>
+<p><strong>Tutorial <em>SPARQL</em> (vídeo):</strong> <a href="https://www.youtube.com/watch?v=FvGndkpa4K0" target="_blank">https://www.youtube.com/watch?v=FvGndkpa4K0</a></p>
+<p><strong>Introdução ao <em>SPARQL</em>:</strong> <a href="http://www.macs.hw.ac.uk/SWeL/tag/sparql-for-dummies/" target="_blank">http://www.macs.hw.ac.uk/SWeL/tag/sparql-for-dummies/</a></p>
+<p><strong>Introdução a <i>Graph Databases</i>:</strong> <a href="https://www.youtube.com/watch?v=vJcxRjJ982k&list=WL&index=168&t=0s" target="_blank">https://www.youtube.com/watch?v=vJcxRjJ982k</a>
+
+
+<p>SPARQL é um acrónimo recursivo do inglês SPARQL Protocol and RDF Query Language. Trata-se de uma linguagem padronizada para a consulta de grafos RDF, padrão estabelecido pelo <em>RDF Data Access Working Group</em> (DAWG) do <em>World Wide Web Consortium</em> (W3C). Por outras palavras: permite interagir com ontologias, efetuando <em>queries</em> de consulta e insersão de dados. É uma tecnologia essencial no desenvolvimento da <i>Web semântica</i> rumo à <em>Web 3.0</em>, constituindo-se como recomendação oficial do W3C a 15 de janeiro de 2008, tendo sido actualizada à versão 1.1 em 2013.</p>
+
+<br>
+
+<p style="text-align:center;">
+<iframe width="854" height="480" src="https://www.youtube.com/embed/FvGndkpa4K0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+<br><br>
+
+</div><!-- /.container-fluid -->
+</section>
+
+{% block end %}
+<script src="{{ url_for('static', filename='js/jquery.csv.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/dataTables.bootstrap.js') }}"></script>
+<script src="{{ url_for('static', filename='js/csv_to_html_table.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.doubleScroll.js') }}"></script>
+
+<script>
+  CsvToHtmlTable.init({
+    csv_path: '{{ url_for('api.sparql')}}?output=csv&limit=50&corpus={{corpus}}',
+    element: 'table-container',
+    allow_download: false,
+    csv_options: {separator: ',', delimiter: '"'},
+    datatables_options: {"paging": false, "searching": false, "info": false}
+  });
+</script>
+
+<script>
+//TLN.append_line_numbers( "query" );
+</script>
+
+<script>
+$(document).ready(function() {
+//   $('#table-container-table').doubleScroll();
+});
+</script>
+
+<script type="text/javascript">
+function changeCode(exN) {
+var ex1 = `SELECT ?title ?minority WHERE {
+    ?article rdf:type :Article .
+    ?article :title ?title .
+    ?article :referesMinority ?m .
+    ?m :minority ?minority .
+    FILTER (CONTAINS(?minority , "mulheres")) .
+}`;
+var ex2 = `SELECT ?article ?priority ?title ?preview ?text ?dataPub
+WHERE {
+    ?article a :Article . 
+    ?article :title ?title .
+    ?article :preview ?preview .
+    ?article :text ?text .
+    ?article :dataPub ?dataPub .
+    ?article :hasPriority ?pri .
+    ?pri :priority ?priority .
+    ?pri :referesMinority ?m .
+    ?m :minority ?minority .
+    FILTER (CONTAINS(?minority , "refugiados")) .
+}
+ORDER BY DESC(?priority)
+LIMIT 100`;
+var ex3 = `SELECT ?id ?dataPub ?title ?subTitle ?preview ?text ?link ?sentiment
+    (group_concat(DISTINCT ?minority;separator="|") as ?minority) 
+    (group_concat(DISTINCT ?animal;separator="|") as ?animal) 
+    (group_concat(DISTINCT ?religion;separator="|") as ?religion)
+    (group_concat(DISTINCT ?city;separator="|") as ?city)
+    (group_concat(DISTINCT ?country;separator="|") as ?country)
+    (group_concat(DISTINCT ?continent;separator="|") as ?continent)
+    (group_concat(DISTINCT ?otherPlace;separator="|") as ?otherPlace)
+    (group_concat(DISTINCT ?politicalParty;separator="|") as ?politicalParty)
+    (group_concat(DISTINCT ?entity;separator="|") as ?entity)
+    (group_concat(DISTINCT ?person;separator="|") as ?person)
+    (group_concat(DISTINCT ?ethnicity;separator="|") as ?ethnicity)
+    (group_concat(DISTINCT ?month;separator="|") as ?month)
+    (group_concat(DISTINCT ?weekday;separator="|") as ?weekday)
+    (group_concat(DISTINCT ?keyword;separator="|") as ?keyword)
+    (GROUP_CONCAT(DISTINCT CONCAT(?minority, "#", STR(?priority));SEPARATOR="|") AS ?minorityPriority)
+
+WHERE {
+    ?article rdf:type :Article .
+
+    bind(strafter(str(?article), 'minors#') as ?id) .
+    
+    ?article :title ?title .
+    ?article :dataPub ?dataPub .
+    OPTIONAL { ?article :subTitle ?subTitle . }
+    OPTIONAL { ?article :preview ?preview } .
+    ?article :link ?link .
+    ?article :text ?text .
+    ?article :sentimentAnalysis ?sentiment .
+    
+    ?article :hasPriority ?m .
+    ?m :priority ?priority .
+    ?m :referesMinority ?minor .
+    ?minor :minority ?minority .
+    
+    OPTIONAL {  ?article :referesAnimal ?a .
+                ?a :animal ?animal . }
+    
+    OPTIONAL {  ?article :referesReligion ?a .
+                ?a :religion ?religion . }
+
+    OPTIONAL {  ?article :referesPoliticalParty ?a .
+                ?a :politicalParty ?politicalParty . }
+
+    OPTIONAL {  ?article :referesEntity ?a .
+                ?a :entity ?entity . }
+
+    OPTIONAL {  ?article :referesPerson ?a .
+                ?a :person ?person . }
+
+    OPTIONAL {  ?article :referesEthnicity ?a .
+                ?a :ethnicity ?ethnicity . } 
+
+    OPTIONAL {  ?article :referesKeyword ?a .
+                ?a :keyword ?keyword . } 
+
+    OPTIONAL {  ?article :referesMonth ?a . 
+                ?a :month ?month . }
+
+    OPTIONAL {  ?article :referesWeekday ?a . 
+                ?a :weekday ?weekday . }
+
+    OPTIONAL {  ?article :referesCity ?a . 
+                ?a :city ?city . }
+    
+    OPTIONAL {  ?article :referesCountry ?a . 
+                ?a :country ?country . }
+    
+    OPTIONAL {  ?article :referesContinent ?a . 
+                ?a :continent ?continent . }
+    
+    OPTIONAL {  ?article :referesOtherPlace ?a . 
+                ?a :otherPlace ?otherPlace . }
+
+    FILTER (CONTAINS(?minority , "mulheres")) .
+}
+GROUP BY ?id ?dataPub ?title ?subTitle ?preview ?text ?link ?sentiment
+ORDER BY DESC(?dataPub) ?id`;
+var ex4 = `SELECT ?year (COUNT(?article) as ?articles)
+    WHERE {
+    ?article a :Article ; :dataPub ?date .
+    BIND (year(?date) AS ?year)
+}
+GROUP BY ?year
+ORDER BY ?year`;
+
+var examples = [ex1, ex2, ex3, ex4];
+editor.setValue(examples[exN]);
+
+//$('#query').html(examples[exN]);
+//$('#query').val(examples[exN]);
+//TLN.remove_line_numbers( "query" );
+//TLN.append_line_numbers( "query" );
+}
+
+
+/*require([
+  "{{ url_for('static', filename='codemirror/lib/codemirror.js') }}", "{{ url_for('static', filename='codemirror/mode/sparql/sprql.js') }}"
+], function(CodeMirror) {
+  CodeMirror.fromTextArea(document.getElementById("teste"), {
+    lineNumbers: true,
+    mode: "application/sparql-query"
+  });
+});*/
+
+
+
+/*var myCodeMirror = CodeMirror(document.body, {
+  value: "function myScript(){return 100;}\n",
+  mode:  "javascript"
+});*/
+
+</script>
+{% endblock %}
+
+{% endblock %}

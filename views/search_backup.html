@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<section class="content">
+<div class="container-fluid p-5">
+
+
+<p class="lead">A DISPONIBILIZAR EM BREVE</p>
+
+<div class="search">
+    <form onsubmit="search(event)">
+
+        <select name="classes" id="classes">
+            <option value="volvo">Pessoas</option>
+            <option value="saab">Partidos</option>
+            <option value="mercedes">Etnias</option>
+            <option value="audi">Religiões</option>
+            <option value="audi">Cidades</option>
+            <option value="audi">Países</option>
+            <option value="audi">Continentes</option>
+            <option value="audi">Outros Lugares</option>
+            <option value="audi">Religiões</option>
+            <option value="audi">Religiões</option>
+            <option value="audi">Religiões</option>
+            <option value="audi">Religiões</option>
+            <option value="audi">Religiões</option>
+        </select>
+
+        <input autofocus id="searchInput" type="text" placeholder="Search...">
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+</div>
+
+
+{'Minorias': ['Minority','minority'],
+'Pessoas': ['Person', 'personName'],
+'Partidos': ['PoliticalParty', 'politicalParty'],
+'Animais':['Animal', 'animal'],
+'Etnias': ['Ethnicity', 'ethnicity'],
+'Religiões':['Religion', 'religion'],
+'Cidades':['City', 'city'],
+'Países':['Country', 'country'],
+'Continentes':['Continent', 'continent'],
+'Outros Lugares':['OtherPlace', 'otherPlace'],
+'Dias da Semana':['Weekday', 'weekday'],
+'Meses':['Month', 'month'],
+'Entidades':['Entity', 'entity'],
+'Clubes de Futebol':['', ''],
+'Tags': ['Tag','tag]'],
+'Palavras-chave': ['Keyword,'keyword],
+}
+
+<blockquote style="font-size:1.2rem;">Poderá efectuar qualquer tipo de pesquisa e descarregamento de <i>corpus</i> de dados através de <i>queries</i> <a href="{{ url_for('sparql.sparql') }}">SPARQL</a>. Esta página pretenderá ser um mecanismo de pesquisa simplificado, com interface gráfica e formulário de filtragem visual, para utilizadores que não estejam confortáveis com as especificações técnicas de consulta de dados em ontologias. No entanto será sempre inferior à precisão e profundidade de pesquisa direta com <i> queries SPARQL</i>, por essa razão recomendamos consulta das especificões.</blockquote>
+
+<br><br>
+<p class="text-center"><img src="{{ url_for('static', filename='images/ampulheta2.png') }}"></p>
+
+<br><br>
+
+
+
+
+
+
+</div><!-- /.container-fluid -->
+</section>
+
+
+<script>
+
+</script>
+
+{% endblock %}

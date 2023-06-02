@@ -1,0 +1,686 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="top-index">
+
+<div class="col-8 pt-5 pl-5 pr-0 pb-2" style="color:#333333;min-height:250px;">
+<h1 class="h1 display-2 text-left" style="color:#333333;font-weight:normal;text-shadow: 2px 2px 1px #f4f6f9;"><b>Major</b> Minors</h1>
+<p class="display-6 text-justify pb-0" style="background:rgba(244,246,249,0.6);padding-right:10px;border-radius:5px;">
+  Ontologia de recortes de imprensa de jornais portugueses com referência a minorias, entre os quais um <i>corpus</i> de artigos, comentários e imagens. O <i>corpus</i> abarca as duas primeiras décadas do século XXI. Este projeto conta com uma base de dados ontológica, ou seja, uma árvore de relações semânticas e referências hierarquizadas, que pretende contribuir para um retrato da representação de minorias no contexto português.</p>
+  <!--<p class="lead display-6 text-justify" style="background:rgba(244,246,249,0.6);padding-right:10px;border-radius:5px;">Base de dados ontológica com representações de grupos minoritários por jornais portugueses. Repositório de apoio à investigação científica, projeto sediado na Universidade do Minho (DI). Base de dados baseada em grafos, ontologia <i>OWL</i>, estudos de <i>sentiment analysis</i>, sistema de pesquisa com <i>queries</i> <i>SPARQL</i>, estatísticas avançadas, recortes de jornais, etc. Projeto de acesso aberto (<i>open-source</i>).</p>-->
+    
+  </p>
+</div>
+
+
+<section class="container-fluid pl-5 pr-5 preview-numbers">
+
+<!-- Small boxes (Stat box) -->
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>{{ totalArticles }}</h3>
+
+                <p>Artigos que referem minorias</p>
+              </div>
+              <div class="icon">
+                <i class="nav-icon fas fa-newspaper"></i>
+              </div>
+              <a href="{{ url_for('articles.articles') }}" class="small-box-footer">Galeria de Artigos <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>{{ totalComments }}<!--<sup style="font-size: 20px">%</sup>--></h3>
+
+                <p>Comentários em artigos</p>
+              </div>
+              <div class="icon">
+                <i class="nav-icon far fa-comment-dots"></i>
+              </div>
+              <a href="{{ url_for('comments.comments') }}" class="small-box-footer">Galeria de Comentários <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>{{ totalImages }}</h3>
+
+                <p>Imagens associadas a artigos</p>
+              </div>
+              <div class="icon">
+                <i class="nav-icon fas fa-photo-video"></i>
+              </div>
+              <a href="{{ url_for('images.images') }}" class="small-box-footer">Galeria de Imagens <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>{{ totaltriples }}</h3>
+
+                <p>Triplos ontológicos</p>
+              </div>
+              <div class="icon">
+                <i class="nav-icon fas fa-user-friends"></i>
+              </div>
+              <a href="{{ url_for('ontology.ontology') }}" class="small-box-footer">Estrutura da ontologia <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+        </div>
+        <!-- /.row -->
+</section>
+
+
+<br><br>
+
+
+<div class="container activities-list" style="margin-top:50px;">
+
+<div class="card-deck">
+<div class="card">
+  <img src="{{ url_for('static', filename='images/arrow-right.png') }}" class="arrow-right">
+  <!--<img class="card-img-top" src="..." alt="Card image cap">-->
+      <div class="small-box" style="box-shadow:none;">
+        <div class="icon" style="color:rgba(0,0,0,1);text-align:center;">
+        <i class="nav-icon fas fa-spider text-center" style="text-align:center;position:relative;right:auto;"></i>
+        </div>
+      </div>
+  <div class="card-body text-center" style="text-align:center;">
+    <h5 class="card-title">Crawler</h5>
+    <p class="card-text">Criação de <em>software</em> para <em>data mining</em> de notícas de jornais portugueses arquivados desde 1996 até 2019 no repositório <a href="https://sobre.arquivo.pt/pt/ajuda/o-que-e-o-arquivo-pt/" target="_blank">Arquivo.pt</a>.</p>
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="{{ url_for('static', filename='images/arrow-right.png') }}" class="arrow-right">
+  <!--<img class="card-img-top" src="..." alt="Card image cap">-->
+      <div class="small-box" style="box-shadow:none;">
+        <div class="icon" style="color:rgba(0,0,0,1);text-align:center;">
+        <i class="nav-icon fab fa-buffer text-center" style="text-align:center;position:relative;right:auto;"></i>
+        </div>
+      </div>
+  <div class="card-body text-center" style="text-align:center;">
+    <h5 class="card-title">Scraper</h5>
+    <p class="card-text">Programação de ferramentas de limpeza e estruturação dos dados obtidos de cerca de 1 milhão de ficheiros em formato <em>HTML</em>.</p>
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="{{ url_for('static', filename='images/arrow-down.png') }}" class="arrow-down">
+  <!--<img class="card-img-top" src="..." alt="Card image cap">-->
+      <div class="small-box" style="box-shadow:none;">
+        <div class="icon" style="color:rgba(0,0,0,1);text-align:center;">
+        <i class="nav-icon far fa-list-alt text-center" style="text-align:center;position:relative;right:auto;"></i>
+        </div>
+      </div>
+  <div class="card-body text-center" style="text-align:center;">
+    <h5 class="card-title">Palavras-chave</h5>
+    <p class="card-text">Análise dos dados e criação de árvores de relações semânticas. Base de dados com milhares de palavras-chave hierarquizadas.</p>
+  </div>
+</div>
+
+</div><!--card-deck-->
+
+<div class="card-deck">
+
+<div class="card">
+  <!--<img class="card-img-top" src="..." alt="Card image cap">-->
+      <div class="small-box" style="box-shadow:none;">
+        <div class="icon" style="color:rgba(0,0,0,1);text-align:center;">
+        <i class="nav-icon fas fa-hand-holding-heart text-center" style="text-align:center;position:relative;right:auto;"></i>
+        </div>
+      </div>
+  <div class="card-body text-center" style="text-align:center;">
+    <h5 class="card-title">Website</h5>
+    <p class="card-text">Desenvolvimento do <em>website</em> e servidor, compilando as ferramentas de forma acessível e <i>open-source</i> à comunidade científica.</p>
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="{{ url_for('static', filename='images/arrow-left.png') }}" class="arrow-left">
+  <!--<img class="card-img-top" src="..." alt="Card image cap">-->
+      <div class="small-box" style="box-shadow:none;">
+        <div class="icon" style="color:rgba(0,0,0,1);text-align:center;">
+        <i class="nav-icon fas fa-project-diagram text-center" style="text-align:center;position:relative;right:auto;"></i>
+        </div>
+      </div>
+  <div class="card-body text-center" style="text-align:center;">
+    <h5 class="card-title">Ontologia</h5>
+    <p class="card-text">Compilação de uma ontologia com os dados estruturados e relações semânticas. Tecnologias <em>SPARQL</em>, <em>GraphDB</em> e <em>OWL</em>.</p>
+  </div>
+</div>
+
+<div class="card">
+  <img src="{{ url_for('static', filename='images/arrow-left.png') }}" class="arrow-left">
+  <!--<img class="card-img-top" src="..." alt="Card image cap">-->
+      <div class="small-box" style="box-shadow:none;">
+        <div class="icon" style="color:rgba(0,0,0,1);text-align:center;">
+        <i class="nav-icon fas fa-theater-masks text-center" style="text-align:center;position:relative;right:auto;"></i>
+        </div>
+      </div>
+  <div class="card-body text-center" style="text-align:center;">
+    <h5 class="card-title">Análise de Sentimentos</h5>
+    <p class="card-text">Pontuação do sentimento afetivo associado a cada notícia através de ferramentas de processamento de linguagem natural.</p>
+  </div>
+</div>
+
+</div>
+</div>
+
+
+<div class="container-fluid lead-lilas" style="margin-top:50px;">
+<div class="content">  
+<section class="row p-5">
+
+<!-- LEFT COL -->
+<section class="col-lg-4 text-right">
+<img src="{{ url_for('static', filename='images/ontologycourse-logo.png') }}">
+</section>
+
+<!-- Right COL -->
+<section class="col-lg-7 pl-5 pr-5">
+<h2 style="color:gray;font-weight:bold;"><span class="text-dark">Ontologia</span> | <span class="text-info">SPARQL</span> | <span class="text-dark">OWL</span></h2>
+<p style="color:gray;">Base de dados semântica das notícias portuguesas.</p>
+<hr style="">
+<p>Uma ontologia é uma base de dados com representação semântica das relações entre conceitos. Podem ser usadas, entre outras coisas, com o objetivo de melhorar a exatidão de pesquisas, diminuindo o fosso homem-máquina. O <em>SPARQL</em> e <em>OWL</em> são linguagens de implementação desta tecnologia que tentam revolucionar a forma como interagimos com a <em>Web</em> (com recomendação do <em>World Wide Web Consortium</em> para o futuro da <em>Web</em> 3.0). Por estas características, as ontologias são uma das tecnologias chaves para a implementação da nova geração da internet, a <em>Web Semântica</em>. <i>Corpus</i> atual: Jornal Público 1996-2019 (2015-2017 parciais, em indexação; 2019 ainda não disponíel na totalidade no Arquivo.pt). Base de dados em expansão, novos <i>corpus</i> em tratamento. Fonte dos dados: <i>Arquivo.pt</i>.</p>
+
+<p class="text-left" style="margin-top:25px;">
+<a href="{{ url_for('ontology.ontology') }}" class="btn btn-primary" style="font-size:1rem;">ESTRUTURA</a> <a href="{{ url_for('sparql.sparql') }}" class="btn btn-primary" style="font-size:1rem;">QUERIES</a> <a href="{{ url_for('search.search') }}" class="btn btn-primary" style="font-size:1rem;">PESQUISA GUIADA</a> <a href="http://sparql.ilch.uminho.pt" target="_blank" class="btn btn-primary" style="font-size:1rem;">GRAPHDB</a>
+</p>
+
+</section>
+</section>
+</div>
+</div>
+
+
+
+<div class="container-fluid" style="margin-top:50px;">
+<section class="row p-5">
+
+<!-- LEFT COL -->
+<section class="col-lg-7">
+
+            <!-- BAR CHART -->
+            <div class="card" style="min-height:406px;">
+              <div class="card-header">
+                <h3 class="card-title">Nº de artigos com referência a minorias indexados</h3>
+              </div>
+              <div class="card-body">
+                <div class="chart">
+                  <canvas id="barChart" style="min-height: 300px; height: 300px; max-height: 300px; max-width: 100%;"></canvas>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+
+            <!-- Linhas CHART -->
+            <div class="card" style="min-height:406px;">
+              <!--<div class="card-header border-0">-->
+              <div class="card-header">
+                <div class="d-flex justify-content-between">
+                  <h3 class="card-title">Comentários e imagens recolhidos</h3>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="d-flex">
+                  <p class="d-flex flex-column">
+                    <span><b>3654</b> comentários</span>
+                    <span><b>9482</b> imagens</span>
+                  </p>
+                  <!--<p class="ml-auto d-flex flex-column text-right">
+                    <span class="text-success">
+                      <i class="fas fa-arrow-up"></i> 12.5%
+                    </span>
+                    <span class="text-muted">Since last week</span>
+                  </p>-->
+                </div>
+                <!-- /.d-flex -->
+
+                <div class="position-relative mb-4">
+                  <canvas id="visitors-chart" height="200"></canvas>
+                </div>
+
+                <div class="d-flex flex-row justify-content-end">
+                  <span class="mr-2">
+                    <i class="fas fa-square text-primary"></i> Comentários
+                  </span>
+
+                  <span>
+                    <i class="fas fa-square text-gray"></i> Imagens
+                  </span>
+                </div>
+              </div>
+            </div>
+            <!-- /.card -->
+
+</section>
+
+<!-- RIGHT COL -->
+<section class="col-lg-5">
+
+            <!-- Custom tabs (Charts with tabs)-->
+            <div class="card" style="min-height:406px;">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <i class="fas fa-chart-pie mr-1"></i>
+                  Referências
+                </h3>
+                <div class="card-tools">
+                  <ul class="nav nav-pills ml-auto">
+                    <li class="nav-item" class="pie-partidos">
+                      <a class="nav-link active" href="#partidos-chart" data-toggle="tab">Partidos</a>
+                    </li>
+                    <li class="nav-item" class="pie-entidades">
+                      <a class="nav-link" href="#entidades-chart" data-toggle="tab">Entidades</a>
+                    </li>
+                    <li class="nav-item" class="pie-animais">
+                      <a class="nav-link" href="#animais-chart" data-toggle="tab">Animais</a>
+                    </li>
+                    <li class="nav-item" class="pie-minorias">
+                      <a class="nav-link">...</a>
+                    </li>
+                    <!--<li class="nav-item" class="pie-minorias">
+                      <a class="nav-link" href="#minorias-chart" data-toggle="tab">Minorias</a>
+                    </li>-->
+                  </ul>
+                </div>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                <div class="tab-content p-0">
+                  <!-- Morris chart -->
+                  <div class="chart tab-pane active" id="partidos-chart" style="position: relative; height: 300px;">
+                    <canvas id="partidos-chart-canvas" height="300" style="height: 300px;"></canvas>                         
+                  </div> 
+                  <div class="chart tab-pane" id="entidades-chart" style="position: relative; height: 300px;">
+                    <canvas id="entidades-chart-canvas" height="300" style="height: 300px;"></canvas>                         
+                  </div>  
+                  <div class="chart tab-pane" id="animais-chart" style="position: relative; height: 300px;">
+                    <canvas id="animais-chart-canvas" height="300" style="height: 300px;"></canvas>                         
+                  </div> 
+                  <div class="chart tab-pane" id="minorias-chart" style="position: relative; height: 300px;">
+                    <canvas id="minorias-chart-canvas" height="300" style="height: 300px;"></canvas>                         
+                  </div> 
+
+                </div>
+              </div><!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+<!-- Info Boxes Style 2 -->
+            <div class="info-box mb-3 bg-warning">
+              <span class="info-box-icon"><i class="far fa-user-circle"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Referências a personalidades</span>
+                <span class="info-box-number">{{ totalPersons }}</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+            <div class="info-box mb-3 bg-success">
+              <span class="info-box-icon"><i class="far fa-keyboard"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Referências a palavras-chave</span>
+                <span class="info-box-number">{{ totalKeywords }}</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+            <div class="info-box mb-3 bg-danger">
+              <span class="info-box-icon"><i class="far fa-flag"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Referências a países</span>
+                <span class="info-box-number">{{ totalCountries }}</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+           <div class="info-box mb-3 bg-info">
+              <span class="info-box-icon"><i class="fas fa-city"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Referências a cidades</span>
+                <span class="info-box-number">{{ totalCities }}</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+
+</section><!-- / RIGHT -->
+
+</section><!-- Content -->
+</div>
+
+
+
+<div class="container-fluid lead-lilas" style="margin-top:50px;">
+<div class="content">  
+<section class="row p-5">
+
+<!-- LEFT COL -->
+<section class="col-lg-3 text-right">
+<img src="{{ url_for('static', filename='images/research.png') }}">
+</section>
+
+<!-- Right COL -->
+<section class="col-lg-8 pl-5 pr-5">
+<h2 style="color:gray;font-weight:bold;"><span class="text-dark">Investigação</span> | <span class="text-info">Ciência</span> | <span class="text-dark">Tecnologia</span></h2>
+<p style="color:gray;">Mapeando a representação de minorias em contexto português.</p>
+<hr style="">
+<p class="lead text-justify">Plataforma incubada por dois alunos/investigadores de pós-graduação da <a href="https://www.uminho.pt/" target="_blank">Universidade do Minho</a> no seio do Departamento de Informática (<a href="https://www.di.uminho.pt/" target="_blank">DI</a>), com o objetivo de servir de repositório <i>open-source</i> de apoio à comunidade científica. O projeto conta com a colaboração de Grupos de Investigação do Centro de Estudos Humanísticos da Universidade do Minho (<a href="http://cehum.ilch.uminho.pt/" target="_blank">CEHUM</a>), nomeadamente o <a href="https://retratorepresentacao.wixsite.com/girr" target="_blank">Grupo2i</a>, no âmbito de investigação em Identidade(s) e Intermedialidade(s), e o <a href="http://ceh.ilch.uminho.pt/ghd/" target="_blank">GHD</a>, no âmbito de investigação em Linguística e Processamento de Linguagem Natural. O objetivo do projeto passa por ser uma ferramenta de investigação para as áreas socioculturais e humanísticas, um <i>corpus</i> textual para análise linguística e,  pela sua componente ontológica e <i>software</i> produzido para mineração/tratamento de dados, uma ferramenta informática.</p>
+
+<p class="text-left" style="margin-top:25px;">
+<a href="{{ url_for('science.science') }}" class="btn btn-primary" style="font-size:1rem;">PRODUÇÃO CIENTÍFICA</a> <a href="{{ url_for('press.press') }}" class="btn btn-primary" style="font-size:1rem;">RECORTES DE IMPRENSA</a>
+</p>
+
+</section>
+</section>
+</div>
+</div>
+
+
+
+<div class="container activities-list" style="margin-top:75px;">
+<h1 class="h1-index">MINORIAS EM ESTUDO</h1>
+<!--<hr class="brace">-->
+<hr class="my-4">
+<br>
+
+
+<div class="row text-center text-lg-center">
+
+    <div class="col-lg-3 col-md-4 col-6 img-gallery">
+      <a href="{{ url_for('minorities.minorities', minority='refugiados') }}" class="d-block mb-4 h-100 hover-effect-1">
+        <img class="img-fluid img-thumbnail xhover-effect" src="{{ url_for('static', filename='images/icons/minoria-refugiados.png')}}">
+        <span class="img-caption">Refugiados</span>
+      </a>
+    </div>
+    <div class="col-lg-3 col-md-4 col-6 img-gallery">
+      <a href="{{ url_for('minorities.minorities', minority='mulheres') }}" class="d-block mb-4 h-100 hover-effect-1">
+        <img class="img-fluid img-thumbnail xhover-effect" src="{{ url_for('static', filename='images/icons/minoria-mulheres.png')}}">
+        <span class="img-caption">Mulheres</span>
+      </a>
+    </div>
+    <div class="col-lg-3 col-md-4 col-6 img-gallery">
+      <a href="{{ url_for('minorities.minorities', minority='animais') }}" class="d-block mb-4 h-100 hover-effect-1">
+        <img class="img-fluid img-thumbnail xhover-effect" src="{{ url_for('static', filename='images/icons/minoria-animais.png')}}">
+        <span class="img-caption">Animais</span>
+      </a>
+    </div>
+    <div class="col-lg-3 col-md-4 col-6 img-gallery">
+      <a href="{{ url_for('minorities.minorities', minority='africanos') }}" class="d-block mb-4 h-100 hover-effect-1">
+        <img class="img-fluid img-thumbnail xhover-effect" src="{{ url_for('static', filename='images/icons/minoria-africanos.png')}}">
+        <span class="img-caption">Africanos</span>
+      </a>
+    </div>
+    <div class="col-lg-3 col-md-4 col-6 img-gallery">
+      <a href="{{ url_for('minorities.minorities', minority='homossexuais') }}" class="d-block mb-4 h-100 hover-effect-1">
+        <img class="img-fluid img-thumbnail xhover-effect" src="{{ url_for('static', filename='images/icons/minoria-homossexuais.png')}}">
+        <span class="img-caption">Homossexuais</span>
+      </a>
+    </div>
+    <div class="col-lg-3 col-md-4 col-6 img-gallery">
+      <a href="{{ url_for('minorities.minorities', minority='migrantes') }}" class="d-block mb-4 h-100 hover-effect-1">
+        <img class="img-fluid img-thumbnail xhover-effect" src="{{ url_for('static', filename='images/icons/minoria-migrantes.png')}}">
+        <span class="img-caption">Migrantes</span>
+      </a>
+    </div>
+    <div class="col-lg-3 col-md-4 col-6 img-gallery">
+      <a href="{{ url_for('minorities.minorities', minority='ciganos') }}" class="d-block mb-4 h-100 hover-effect-1">
+        <img class="img-fluid img-thumbnail xhover-effect" src="{{ url_for('static', filename='images/icons/minoria-ciganos.png')}}">
+        <span class="img-caption">Ciganos</span>
+      </a>
+    </div>
+    <div class="col-lg-3 col-md-4 col-6 img-gallery">
+      <a href="{{ url_for('minorities.minorities', minority='asiáticos') }}" class="d-block mb-4 h-100 hover-effect-1">
+        <img class="img-fluid img-thumbnail xhover-effect" src="{{ url_for('static', filename='images/icons/minoria-asiáticos.png')}}">
+        <span class="img-caption">Asiáticos</span>
+      </a>
+    </div>
+
+  </div>
+
+
+</div>
+
+
+</div><!--top-index-->
+
+
+
+{% block end %}
+<script>
+  $(function () {
+    var areaChartData = {
+      labels  : [{% for row in articlesByYear: %}{% if loop.index != 1 %},{% endif %}'{{row["year"]["value"]}}'{% endfor %}],
+      datasets: [
+        {
+          label               : 'Artigos',
+          backgroundColor     : 'rgba(60,141,188,0.9)',
+          borderColor         : 'rgba(60,141,188,0.8)',
+          pointRadius          : false,
+          pointColor          : '#3b8bba',
+          pointStrokeColor    : 'rgba(60,141,188,1)',
+          pointHighlightFill  : '#fff',
+          pointHighlightStroke: 'rgba(60,141,188,1)',
+          data                : [{% for row in articlesByYear: %}{% if loop.index != 1 %},{% endif %}{{row['articles']['value']}}{% endfor %}]
+        },
+        /*{
+          label               : 'Imagens',
+          backgroundColor     : 'rgba(210, 214, 222, 1)',
+          borderColor         : 'rgba(210, 214, 222, 1)',
+          pointRadius         : false,
+          pointColor          : 'rgba(210, 214, 222, 1)',
+          pointStrokeColor    : '#c1c7d1',
+          pointHighlightFill  : '#fff',
+          pointHighlightStroke: 'rgba(220,220,220,1)',
+          data                : []
+        },*/
+      ]
+    }
+
+//-------------
+    //- BAR CHART -
+    //-------------
+    var barChartCanvas = $('#barChart').get(0).getContext('2d')
+    var barChartData = jQuery.extend(true, {}, areaChartData)
+    var temp0 = areaChartData.datasets[0]
+    //var temp1 = areaChartData.datasets[1]
+    barChartData.datasets[0] = temp0
+    //barChartData.datasets[1] = temp1
+
+    var barChartOptions = {
+      responsive              : true,
+      maintainAspectRatio     : false,
+      datasetFill             : false
+    }
+
+    var barChart = new Chart(barChartCanvas, {
+      type: 'bar', 
+      data: barChartData,
+      options: barChartOptions
+    })
+})
+
+
+
+
+
+/*Line chart */
+$(function () {
+  'use strict'
+
+  var ticksStyle = {
+    fontColor: '#495057',
+    fontStyle: 'bold'
+  }
+
+  var mode      = 'index'
+  var intersect = true
+
+  var $visitorsChart = $('#visitors-chart')
+  var visitorsChart  = new Chart($visitorsChart, {
+    data   : {
+      labels  : [{% for row in articlesByYear: %}{% if loop.index != 1 %},{% endif %}'{{row["year"]["value"]}}'{% endfor %}],
+      datasets: [{
+        type                : 'line',
+        data                : [{% for row in commentsByYear: %}{% if loop.index != 1 %},{% endif %}{{row['comments']['value']}}{% endfor %}],
+        backgroundColor     : 'transparent',
+        borderColor         : '#007bff',
+        pointBorderColor    : '#007bff',
+        pointBackgroundColor: '#007bff',
+        fill                : false
+        // pointHoverBackgroundColor: '#007bff',
+        // pointHoverBorderColor    : '#007bff'
+      },
+        {
+          type                : 'line',
+          data                : [{% for row in imagesByYear: %}{% if loop.index != 1 %},{% endif %}{{row['images']['value']}}{% endfor %}],
+          backgroundColor     : 'tansparent',
+          borderColor         : '#ced4da',
+          pointBorderColor    : '#ced4da',
+          pointBackgroundColor: '#ced4da',
+          fill                : false
+          // pointHoverBackgroundColor: '#ced4da',
+          // pointHoverBorderColor    : '#ced4da'
+        }]
+    },
+    options: {
+      maintainAspectRatio: false,
+      tooltips           : {
+        mode     : mode,
+        intersect: intersect
+      },
+      hover              : {
+        mode     : mode,
+        intersect: intersect
+      },
+      legend             : {
+        display: false
+      },
+      scales             : {
+        yAxes: [{
+          // display: false,
+          gridLines: {
+            display      : true,
+            lineWidth    : '4px',
+            color        : 'rgba(0, 0, 0, .2)',
+            zeroLineColor: 'transparent'
+          },
+          ticks    : $.extend({
+            beginAtZero : true,
+            suggestedMax: 200
+          }, ticksStyle)
+        }],
+        xAxes: [{
+          display  : true,
+          gridLines: {
+            display: false
+          },
+          ticks    : ticksStyle
+        }]
+      }
+    }
+  })
+})
+
+
+
+
+
+
+
+
+
+
+// Donut Chart
+  var pieOptions = {
+    legend: {
+      display: true
+    },
+    maintainAspectRatio : false,
+    responsive : true,
+  }
+
+  var pieChartCanvas = $('#partidos-chart-canvas').get(0).getContext('2d')
+  var pieData        = {
+    labels: [{% for row in countPartidos: %}{% if loop.index != 1 %},{% endif %}'{{row["partido"]["value"]}}'{% endfor %}],
+    datasets: [
+      {
+        data: [{% for row in countPartidos: %}{% if loop.index != 1 %},{% endif %}{{row['partidos']['value']}}{% endfor %}],
+        backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#17a2b8', '#333333'],
+      }
+    ]
+  }
+  //Create pie or douhnut chart
+  // You can switch between pie and douhnut using the method below.
+  var pieChart = new Chart(pieChartCanvas, {
+    type: 'doughnut',
+    data: pieData,
+    options: pieOptions      
+  });
+
+
+  var pieChartCanvas2 = $('#entidades-chart-canvas').get(0).getContext('2d')
+  var pieData2        = {
+    labels: [{% for row in countEntities: %}{% if loop.index != 1 %},{% endif %}'{{row["entity"]["value"]}}'{% endfor %}],
+    datasets: [
+      {
+        data: [{% for row in countEntities: %}{% if loop.index != 1 %},{% endif %}{{row['entities']['value']}}{% endfor %}],
+        backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#17a2b8', '#333333','#ff3687'],
+      }
+    ]
+  }
+  //Create pie or douhnut chart
+  // You can switch between pie and douhnut using the method below.
+  var pieChart2 = new Chart(pieChartCanvas2, {
+    type: 'doughnut',
+    data: pieData2,
+    options: pieOptions      
+  });
+
+
+
+  var pieChartCanvas3 = $('#animais-chart-canvas').get(0).getContext('2d')
+  var pieData3        = {
+    labels: [{% for row in countAnimals: %}{% if loop.index != 1 %},{% endif %}'{{row["animal"]["value"]}}'{% endfor %}],
+    datasets: [
+      {
+        data: [{% for row in countAnimals: %}{% if loop.index != 1 %},{% endif %}{{row['animals']['value']}}{% endfor %}],
+        backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#17a2b8', '#333333','#ff3687'],
+      }
+    ]
+  }
+  //Create pie or douhnut chart
+  // You can switch between pie and douhnut using the method below.
+  var pieChart3 = new Chart(pieChartCanvas3, {
+    type: 'doughnut',
+    data: pieData3,
+    options: pieOptions      
+  });
+</script>
+{% endblock %}
+
+
+
+{% endblock %}

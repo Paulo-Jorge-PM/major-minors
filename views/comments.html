@@ -1,0 +1,137 @@
+{% extends "layout.html" %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='dynatable/jquery.dynatable.css') }}" type="text/css">
+<style type="text/css">
+/*.clear {
+    clear:both;    
+}*/
+.btn-info {
+    margin-right:15px;
+    text-transform:uppercase;
+    padding:10px;
+    display:block;
+    float:left;
+}
+.btn-info span {
+    display:block;
+    text-decoration:none;
+    width:100%;
+    height:100%;
+    color:#fff;
+}
+.more.label {
+    float:right;    
+}
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+<section class="content">
+<div class="container-fluid pr-5 pl-5">
+
+<div class="btn-group" style="margin-bottom:20px;">
+  <a class="btn btn-default{% if minority not in minorias: %} btn-active{% endif %}" role="button" href="{{ url_for('comments.comments') }}">
+    Todos
+  </a>
+  {% for minoria in minorias: %}
+  <a class="btn btn-default{% if minority == minoria: %} btn-active{% endif %}" href="{{ url_for('comments.comments', minority=minoria) }}" >
+    {{minoria.capitalize()}}
+  </a>
+  {% endfor %}
+
+  <button type="button" class="btn btn-secondary" data-toggle="popover" title="Algoritmo de pontuação" data-content="O valor junto a cada minoria representa o peso da referência no artigo: quanto mais alto o valor maior a probailidade da relação. Desenvolvemos um algoritmo que pontua de acordo com vários critérios (palavras-chave referidas, posicionamento, cruzamento com outras referências, etc.), sendo 2 o valor mínimo e 21 o máximo."><i class="nav-icon fas fa-question"></i></button>
+</div>
+
+{{ pagination.links }}
+
+{% for row in data: %}
+<div class="card article artigo">
+  <h4 class="card-header">{{row["title"]["value"]}}</h4>
+  <div class="card-body">
+    <p class="card-text"><i>{{row["comment"]["value"]}}</i></p>
+        <div>
+            <div class="more label"><a href="{{ url_for('articles.articles', id=row['idArticle']['value']) }}">Ver metadados</a></div>
+            <div class="tags">
+                {% for m in row["minorityPriority"]["value"].split("|"): %}<span class="badge badge-danger">{{m.split("#")[0].capitalize()}} <span class="badge badge-light">{{m.split("#")[1]}}</span></span> {% endfor %}
+                <span class="badge badge-secondary">{{row["dataPub"]["value"].split('T')[0]}}</span>
+
+        <span class="jornal"><img src="{{ url_for('static', filename='images/jornais/publicov2.png') }}"><span class="badge badge-black">Jornal Público</span></span>
+            </div><!--tags-->
+        </div>
+  </div>
+</div>
+
+{% endfor %}
+
+{{ pagination.links }}
+
+</div><!-- /.container-fluid -->
+</section>
+
+
+
+{% block end %}
+
+<script type="text/javascript">
+
+function downloadInnerHtml(filename, elId, mimeType) {
+    if (mimeType == "text/plain") {
+        var elHtml = document.getElementById(elId).innerText.replace(/Close\sDownload HTML\sDownload TXT/g, '').replace(/×\s/i, '');
+    }
+    else {
+        var elHtml = document.getElementById(elId).innerHTML.replace(/<button.*<\/button>/g, '');
+    }
+    //$.parseHTML( elHtml )
+    //var p = html(elHtml).find(".btn").remove();
+    //alert(p);
+
+    var link = document.createElement('a');
+    mimeType = mimeType || 'text/plain';
+
+    link.setAttribute('download', filename);
+    link.setAttribute('href', 'data:' + mimeType + ';charset=utf-8,' + encodeURIComponent(elHtml));
+    link.click(); 
+}
+
+function downloadHtml(id) {
+    downloadInnerHtml(id+".html", id,'text/html');
+}
+
+function downloadTxt(id) {
+    downloadInnerHtml(id+".txt", id,'text/plain');
+}
+
+/* Hover li - get link from href and make it global in the li - if js disabled link works normal but only in the text */
+$(document).ready(function() {
+    //$('.link').css('display','none');
+    $('.article').hover(function () {
+        bgcolor = $(this).css("background-color");
+        $(this).css({backgroundColor: "#EAB974", cursor: "pointer"});
+        $(this).click(function() {
+            window.location=$(this).find("a").attr("href");
+            return false;
+        });
+    },function() {
+        $(this).css({backgroundColor: bgcolor});
+    });
+});
+
+
+$(".artigo").each(function( index ) {
+    if ($(this).find(".badge-primary").length == 0) {
+        $(this).find(".referencias").hide();
+    }
+});
+
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
+</script>
+
+
+
+{% endblock %}
+
+{% endblock %}
