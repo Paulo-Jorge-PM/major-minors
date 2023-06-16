@@ -1,0 +1,63 @@
+
+services:
+  nginx-proxy:
+    build: nginx
+    restart: always
+    volumes:
+      - ./nginx/default.conf:/tmp/default.conf
+    environment: 
+      - FLASK_SERVER_ADDR=flask-app:8080
+    ports:
+      - "8383:8383"
+    depends_on:
+      - flask-app
+      - graphdb
+    command: /app/start.sh
+    networks:
+      - backend
+  flask-app:
+    build: flask
+    restart: always
+    depends_on:
+    - graphdb
+    command: gunicorn -w 3 -t 60 -b 0.0.0.0:8080 app:app
+    networks:
+      - backend
+  graphdb:
+    container_name: graphdb
+    build:
+      context: graphdb
+      dockerfile: Dockerfile
+      args:
+        version: 10.2.2
+    restart: unless-stopped
+    environment: 
+      GDB_JAVA_OPTS: >-
+        -Xmx2g -Xms2g
+        -Dgraphdb.home=/opt/graphdb/home
+        -Dgraphdb.workbench.importDirectory=/opt/graphdb/home/graphdb-import
+        -Dgraphdb.workbench.cors.enable=true
+        -Denable-context-index=true
+        -Dentity-pool-implementation=transactional
+        -Dhealth.max.query.time.seconds=60
+        -Dgraphdb.append.request.id.headers=true
+        -Dreuse.vars.in.subselects=true
+    ports: 
+      - 7200:7200
+      - 7300:7300
+    volumes:
+      - ./graphdb-data:/opt/graphdb/home
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
+
+volumes:
+  flask-app:
+    driver: local
+  graphdb:
+    driver: local
+  nginx-proxy:
+    driver: local
