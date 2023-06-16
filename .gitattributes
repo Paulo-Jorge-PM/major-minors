@@ -5,3 +5,5 @@ ontologies/ontologia-publico.ttl filter=lfs diff=lfs merge=lfs -text
 ontologies/ontologia-minors.ttl filter=lfs diff=lfs merge=lfs -text
 flask/models/articles-publico.json filter=lfs diff=lfs merge=lfs -text
 flask/models/articles.json filter=lfs diff=lfs merge=lfs -text
+flask/ontologies/ontologia-minors.ttl filter=lfs diff=lfs merge=lfs -text
+flask/ontologies/ontologia-publico.ttl filter=lfs diff=lfs merge=lfs -text
