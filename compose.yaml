@@ -1,26 +1,29 @@
 
 services:
-  nginx-proxy:
-    build: nginx
-    restart: always
-    volumes:
-      - ./nginx/default.conf:/tmp/default.conf
-    environment: 
-      - FLASK_SERVER_ADDR=flask-app:8080
-    ports:
-      - "8383:8383"
-    depends_on:
-      - flask-app
-      - graphdb
-    command: /app/start.sh
-    networks:
-      - backend
+  #nginx-proxy:
+  #  build: nginx
+   # restart: always
+    #volumes:
+    #  - ./nginx/default.conf:/tmp/default.conf
+    #environment: 
+    #  - FLASK_SERVER_ADDR=flask-app:8080
+    #ports:
+    #  - "8383:8383"
+    #depends_on:
+    #  - flask-app
+    #  - graphdb
+    #command: /app/start.sh
+    #networks:
+    #  - backend
   flask-app:
     build: flask
     restart: always
+    ports: 
+      - '8001:8000'
+    command: .venv/bin/python3 -m gunicorn -w 3 -t 60 -b 0.0.0.0:8000 app.wsgi:app
     depends_on:
-    - graphdb
-    command: gunicorn -w 3 -t 60 -b 0.0.0.0:8080 app:app
+      - graphdb
+    #command: gunicorn -w 3 -t 60 -b 0.0.0.0:8080 app:app
     networks:
       - backend
   graphdb:
