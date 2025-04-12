@@ -85,3 +85,14 @@
 [INFO ] 2025-04-12 15:37:58,014 [main | c.o.f.c.s.r.GraphDBRpcServer] Started gRPC server on port 7300 successfully
 [WARN ] 2025-04-12 15:37:58,287 [main | o.e.r.s.h.DirectoryLockManager] Removing invalid lock 20@25a51ac72fe9
 [INFO ] 2025-04-12 15:37:59,243 [main | c.o.g.s.GraphDB] Started GraphDB in workbench mode at port 7200.
+[INFO ] 2025-04-12 23:31:08,095 [main | c.o.g.Config] Using 'jar:file:/opt/graphdb/lib/graphdb-application-common-10.2.1.jar!/com/ontotext/graphdb/logback.xml' as logback's configuration file
+[INFO ] 2025-04-12 23:31:08,246 [main | c.o.g.s.GraphDB] Starting GraphDB in workbench mode.
+[INFO ] 2025-04-12 23:31:12,510 [main | c.o.g.Config] GraphDB Home directory: /opt/graphdb/home
+[INFO ] 2025-04-12 23:31:12,511 [main | c.o.g.Config] GraphDB Config directory: /opt/graphdb/home/conf
+[INFO ] 2025-04-12 23:31:12,511 [main | c.o.g.Config] GraphDB Data directory: /opt/graphdb/home/data
+[INFO ] 2025-04-12 23:31:12,511 [main | c.o.g.Config] GraphDB Work directory: /opt/graphdb/home/work
+[INFO ] 2025-04-12 23:31:12,511 [main | c.o.g.Config] GraphDB Logs directory: /opt/graphdb/home/logs
+[INFO ] 2025-04-12 23:31:12,754 [main | c.o.g.r.s.SecurityUtil] Cluster gRPC server security is disabled
+[INFO ] 2025-04-12 23:31:12,879 [main | c.o.f.c.s.r.GraphDBRpcServer] Started gRPC server on port 7300 successfully
+[WARN ] 2025-04-12 23:31:13,150 [main | o.e.r.s.h.DirectoryLockManager] Removing invalid lock 20@fd00b1b46958
+[INFO ] 2025-04-12 23:31:14,125 [main | c.o.g.s.GraphDB] Started GraphDB in workbench mode at port 7200.
