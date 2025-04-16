@@ -23,8 +23,8 @@ prefixes = '''PREFIX : <http://sparql.ilch.uminho.pt/minors#>
 prefixesPublico = '''PREFIX : <http://sparql.ilch.uminho.pt/publico#>
 '''
 
-repository = 'http://localhost:7200/repositories/minors?query='
-repoPulico = 'http://localhost:7200/repositories/publico?query='
+repository = 'http://graphdb:7200/repositories/minors?query='
+repoPulico = 'http://graphdb:7200/repositories/publico?query='
 #repoQuery = repository + '?query='
 
 ## Outro diferente do exemplo Node:
@@ -40,6 +40,7 @@ def query(query, output="json", corpus="minorias"):
 
     encoded = urllib.parse.quote(prefixe + query, safe="~()*!.\'")
     fullUrl = repo + encoded
+    print(f"Querying URL: {fullUrl}")
 
     try:
         #data = fetch.json()
@@ -55,7 +56,7 @@ def query(query, output="json", corpus="minorias"):
             header = {"Accept":"application/sparql-results+json"}
 
         fetch = requests.get(fullUrl, headers=header)
-
+        print(f"fetch: {fetch}")
 
         #data = fetch.json()
         data = fetch.text

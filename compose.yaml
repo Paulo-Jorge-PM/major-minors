@@ -42,10 +42,13 @@ services:
         -Dgraphdb.workbench.cors.enable=true
         -Denable-context-index=true
         -Dentity-pool-implementation=transactional
-        -Dhealth.max.query.time.seconds=60
+        -Dhealth.max.query.time.seconds=120
         -Dgraphdb.append.request.id.headers=true
         -Dreuse.vars.in.subselects=true
+        -Dgraphdb.workbench.cors.origin=*
+        -Dgraphdb.auth.token.secret=tempSecretToken
     ports: 
+      #- "127.0.0.1:7200:7200"
       - 7200:7200
       - 7300:7300
     volumes:

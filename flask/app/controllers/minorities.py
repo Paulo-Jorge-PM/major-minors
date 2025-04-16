@@ -1,11 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 
+import os
 import json, random
 from flask import Blueprint, render_template
 from app.models import db, queries
 
-minoritiesRoute = Blueprint('minorities', __name__,  template_folder='views')
+views_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'views'))
+minoritiesRoute = Blueprint('minorities', __name__,  template_folder=views_dir)
 
 @minoritiesRoute.route('/minorities')
 @minoritiesRoute.route('/minorities/<string:minority>')

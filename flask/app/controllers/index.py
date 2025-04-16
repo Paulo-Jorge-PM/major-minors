@@ -1,12 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 
+import os
 import re, json
 
 from flask import Blueprint, render_template, current_app
 from app.models import db, queries
 
-indexRoute = Blueprint('index', __name__,  template_folder='views')
+views_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'views'))
+indexRoute = Blueprint('index', __name__,  template_folder=views_dir)
 
 ### ENDPOINTS
 @indexRoute.route('/')

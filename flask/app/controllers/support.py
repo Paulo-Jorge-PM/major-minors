@@ -1,10 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 
+import os
 from flask import Blueprint, render_template
 from app.models import db, queries
 
-supportRoute = Blueprint('support', __name__,  template_folder='views')
+views_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'views'))
+supportRoute = Blueprint('support', __name__,  template_folder=views_dir)
 
 @supportRoute.route('/support')
 def support():

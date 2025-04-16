@@ -9,7 +9,8 @@ from app.libraries.flask_paginate import Pagination, get_page_parameter
 
 from functools import lru_cache
 
-commentsRoute = Blueprint('comments', __name__,  template_folder='views')
+views_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'views'))
+commentsRoute = Blueprint('comments', __name__,  template_folder=views_dir)
 
 @commentsRoute.route('/comments')
 @commentsRoute.route('/comments/<string:minority>')

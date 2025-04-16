@@ -9,7 +9,8 @@ from app.libraries.flask_paginate import Pagination, get_page_parameter
 
 from functools import lru_cache
 
-imagesRoute = Blueprint('images', __name__,  template_folder='views')
+views_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'views'))
+imagesRoute = Blueprint('images', __name__,  template_folder=views_dir)
 
 linksNotWork = ['http://ultimahora.publico.clix.pt:80/imagens.aspx/220048?tp=UH&db=IMAGENS',
 'http://ultimahora.publico.clix.pt:80/imagens.aspx/219947?tp=UH&db=IMAGENS',

@@ -9,7 +9,8 @@ from app.libraries.flask_paginate import Pagination, get_page_parameter
 
 from functools import lru_cache
 
-articlesRoute = Blueprint('articles', __name__,  template_folder='views')
+views_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'views'))
+articlesRoute = Blueprint('articles', __name__,  template_folder=views_dir)
 
 @articlesRoute.route('/articles')
 @articlesRoute.route('/articles/<string:minority>')

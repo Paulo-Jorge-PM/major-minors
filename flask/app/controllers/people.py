@@ -1,13 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 
+import os
 import json
 from flask import Blueprint, render_template, request
 from app.models import db, queries
 
 from app.libraries.flask_paginate import Pagination, get_page_parameter
 
-peopleRoute = Blueprint('people', __name__,  template_folder='views')
+views_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'views'))
+peopleRoute = Blueprint('people', __name__,  template_folder=views_dir)
 
 @peopleRoute.route('/people')
 @peopleRoute.route('/people/<string:minority>')

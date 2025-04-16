@@ -1,11 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 
+import os
 from flask import Blueprint, render_template, request, Response, session, jsonify
 from app.models import db, queries
 from app.libraries import flask_session
 
-sparqlRoute = Blueprint('sparql', __name__,  template_folder='views')
+views_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'views'))
+sparqlRoute = Blueprint('sparql', __name__,  template_folder=views_dir)
 
 @sparqlRoute.route('/sparql', methods=['GET', 'POST'])
 def sparql():
