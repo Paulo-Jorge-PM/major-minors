@@ -19,7 +19,7 @@ services:
     build: flask
     restart: always
     ports: 
-      - '8001:8000'
+      - '127.0.0.1:8001:8000'
     command: .venv/bin/python3 -m gunicorn -w 3 -t 60 -b 0.0.0.0:8000 app.wsgi:app
     depends_on:
       - graphdb
@@ -39,18 +39,16 @@ services:
         -Xmx2g -Xms2g
         -Dgraphdb.home=/opt/graphdb/home
         -Dgraphdb.workbench.importDirectory=/opt/graphdb/home/graphdb-import
-        -Dgraphdb.workbench.cors.enable=true
         -Denable-context-index=true
         -Dentity-pool-implementation=transactional
         -Dhealth.max.query.time.seconds=120
         -Dgraphdb.append.request.id.headers=true
         -Dreuse.vars.in.subselects=true
-        -Dgraphdb.workbench.cors.origin=*
-        -Dgraphdb.auth.token.secret=tempSecretToken
-    ports: 
-      #- "127.0.0.1:7200:7200"
-      - 7200:7200
-      - 7300:7300
+        -Dgraphdb.auth.token.secret=${GRAPHDB_AUTH_TOKEN_SECRET:-change-me-in-production}
+    # Do not publish GraphDB to the host; flask-app reaches it via the backend network.
+    expose:
+      - "7200"
+      - "7300"
     volumes:
       - ./graphdb-data:/opt/graphdb/home
     networks:

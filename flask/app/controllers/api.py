@@ -7,10 +7,15 @@ from app.models import db, queries
 
 views_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'views'))
 apiRoute = Blueprint('api', __name__,  template_folder=views_dir)
+SPARQL_API_ENABLED = False
+SPARQL_DISABLED_PAYLOAD = '{"message":"SPARQL query service temporarily disabled due to low resources."}'
 
 @apiRoute.route('/api/sparql', methods=['GET', 'POST'])
 def sparql():
+    if not SPARQL_API_ENABLED:
+        return Response(SPARQL_DISABLED_PAYLOAD, status=503, mimetype="application/json")
 
+    # Legacy SPARQL API implementation (kept for future re-enable).
     if request.method == "GET" or request.method == "POST":
         try:
             if request.method == "GET":
@@ -47,5 +52,4 @@ def sparql():
                 return Response(status=404)
         except:
             return Response(status=404)
-
 

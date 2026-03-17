@@ -30,12 +30,14 @@ background:#f2f2f2;
 }
 </style>
 
+{# SPARQL editor assets are temporarily disabled. #}
+{#
 <script src="{{ url_for('static', filename='codemirror/lib/codemirror.js') }}"></script>
 <link rel="stylesheet" href="{{ url_for('static', filename='codemirror/lib/codemirror.css') }}">
 <script src="{{ url_for('static', filename='codemirror/mode/javascript/javascript.js') }}"></script>
-
 <script src="{{ url_for('static', filename='codemirror/addon/edit/matchbrackets.js') }}"></script>
- <script src="{{ url_for('static', filename='codemirror/mode/sparql/sparql.js') }}"></script>
+<script src="{{ url_for('static', filename='codemirror/mode/sparql/sparql.js') }}"></script>
+#}
 
 {% endblock %}
 
@@ -44,6 +46,14 @@ background:#f2f2f2;
 <section class="content">
 <div class="container-fluid pr-5 pl-5">
 
+{% if sparql_disabled %}
+<div class="alert alert-warning mt-3" role="alert">
+  {{ sparql_disabled_message }}
+</div>
+{% endif %}
+
+{# SPARQL query form and result download are temporarily disabled. #}
+{#
 <form action="{{ url_for('sparql.sparql') }}" method="POST">
 <div class="md-form">
 <i class="fas fa-pencil-alt prefix"></i> &nbsp;&nbsp; <label for="form10">Query SPARQL - Introduza uma query de acordo com a especificação da ontologia</label>
@@ -94,6 +104,7 @@ background:#f2f2f2;
     </div>
 </div>
 {% endif %}
+#}
 
 <br><br>
 
@@ -117,169 +128,7 @@ background:#f2f2f2;
 </section>
 
 {% block end %}
-<script src="{{ url_for('static', filename='js/jquery.csv.min.js') }}"></script>
-<script src="{{ url_for('static', filename='js/jquery.dataTables.min.js') }}"></script>
-<script src="{{ url_for('static', filename='js/dataTables.bootstrap.js') }}"></script>
-<script src="{{ url_for('static', filename='js/csv_to_html_table.js') }}"></script>
-<script src="{{ url_for('static', filename='js/jquery.doubleScroll.js') }}"></script>
-
-<script>
-  CsvToHtmlTable.init({
-    csv_path: '{{ url_for('api.sparql')}}?output=csv&limit=50&corpus={{corpus}}',
-    element: 'table-container',
-    allow_download: false,
-    csv_options: {separator: ',', delimiter: '"'},
-    datatables_options: {"paging": false, "searching": false, "info": false}
-  });
-</script>
-
-<script>
-//TLN.append_line_numbers( "query" );
-</script>
-
-<script>
-$(document).ready(function() {
-//   $('#table-container-table').doubleScroll();
-});
-</script>
-
-<script type="text/javascript">
-function changeCode(exN) {
-var ex1 = `SELECT ?title ?minority WHERE {
-    ?article rdf:type :Article .
-    ?article :title ?title .
-    ?article :referesMinority ?m .
-    ?m :minority ?minority .
-    FILTER (CONTAINS(?minority , "mulheres")) .
-}`;
-var ex2 = `SELECT ?article ?priority ?title ?preview ?text ?dataPub
-WHERE {
-    ?article a :Article . 
-    ?article :title ?title .
-    ?article :preview ?preview .
-    ?article :text ?text .
-    ?article :dataPub ?dataPub .
-    ?article :hasPriority ?pri .
-    ?pri :priority ?priority .
-    ?pri :referesMinority ?m .
-    ?m :minority ?minority .
-    FILTER (CONTAINS(?minority , "refugiados")) .
-}
-ORDER BY DESC(?priority)
-LIMIT 100`;
-var ex3 = `SELECT ?id ?dataPub ?title ?subTitle ?preview ?text ?link ?sentiment
-    (group_concat(DISTINCT ?minority;separator="|") as ?minority) 
-    (group_concat(DISTINCT ?animal;separator="|") as ?animal) 
-    (group_concat(DISTINCT ?religion;separator="|") as ?religion)
-    (group_concat(DISTINCT ?city;separator="|") as ?city)
-    (group_concat(DISTINCT ?country;separator="|") as ?country)
-    (group_concat(DISTINCT ?continent;separator="|") as ?continent)
-    (group_concat(DISTINCT ?otherPlace;separator="|") as ?otherPlace)
-    (group_concat(DISTINCT ?politicalParty;separator="|") as ?politicalParty)
-    (group_concat(DISTINCT ?entity;separator="|") as ?entity)
-    (group_concat(DISTINCT ?person;separator="|") as ?person)
-    (group_concat(DISTINCT ?ethnicity;separator="|") as ?ethnicity)
-    (group_concat(DISTINCT ?month;separator="|") as ?month)
-    (group_concat(DISTINCT ?weekday;separator="|") as ?weekday)
-    (group_concat(DISTINCT ?keyword;separator="|") as ?keyword)
-    (GROUP_CONCAT(DISTINCT CONCAT(?minority, "#", STR(?priority));SEPARATOR="|") AS ?minorityPriority)
-
-WHERE {
-    ?article rdf:type :Article .
-
-    bind(strafter(str(?article), 'minors#') as ?id) .
-    
-    ?article :title ?title .
-    ?article :dataPub ?dataPub .
-    OPTIONAL { ?article :subTitle ?subTitle . }
-    OPTIONAL { ?article :preview ?preview } .
-    ?article :link ?link .
-    ?article :text ?text .
-    ?article :sentimentAnalysis ?sentiment .
-    
-    ?article :hasPriority ?m .
-    ?m :priority ?priority .
-    ?m :referesMinority ?minor .
-    ?minor :minority ?minority .
-    
-    OPTIONAL {  ?article :referesAnimal ?a .
-                ?a :animal ?animal . }
-    
-    OPTIONAL {  ?article :referesReligion ?a .
-                ?a :religion ?religion . }
-
-    OPTIONAL {  ?article :referesPoliticalParty ?a .
-                ?a :politicalParty ?politicalParty . }
-
-    OPTIONAL {  ?article :referesEntity ?a .
-                ?a :entity ?entity . }
-
-    OPTIONAL {  ?article :referesPerson ?a .
-                ?a :person ?person . }
-
-    OPTIONAL {  ?article :referesEthnicity ?a .
-                ?a :ethnicity ?ethnicity . } 
-
-    OPTIONAL {  ?article :referesKeyword ?a .
-                ?a :keyword ?keyword . } 
-
-    OPTIONAL {  ?article :referesMonth ?a . 
-                ?a :month ?month . }
-
-    OPTIONAL {  ?article :referesWeekday ?a . 
-                ?a :weekday ?weekday . }
-
-    OPTIONAL {  ?article :referesCity ?a . 
-                ?a :city ?city . }
-    
-    OPTIONAL {  ?article :referesCountry ?a . 
-                ?a :country ?country . }
-    
-    OPTIONAL {  ?article :referesContinent ?a . 
-                ?a :continent ?continent . }
-    
-    OPTIONAL {  ?article :referesOtherPlace ?a . 
-                ?a :otherPlace ?otherPlace . }
-
-    FILTER (CONTAINS(?minority , "mulheres")) .
-}
-GROUP BY ?id ?dataPub ?title ?subTitle ?preview ?text ?link ?sentiment
-ORDER BY DESC(?dataPub) ?id`;
-var ex4 = `SELECT ?year (COUNT(?article) as ?articles)
-    WHERE {
-    ?article a :Article ; :dataPub ?date .
-    BIND (year(?date) AS ?year)
-}
-GROUP BY ?year
-ORDER BY ?year`;
-
-var examples = [ex1, ex2, ex3, ex4];
-editor.setValue(examples[exN]);
-
-//$('#query').html(examples[exN]);
-//$('#query').val(examples[exN]);
-//TLN.remove_line_numbers( "query" );
-//TLN.append_line_numbers( "query" );
-}
-
-
-/*require([
-  "{{ url_for('static', filename='codemirror/lib/codemirror.js') }}", "{{ url_for('static', filename='codemirror/mode/sparql/sprql.js') }}"
-], function(CodeMirror) {
-  CodeMirror.fromTextArea(document.getElementById("teste"), {
-    lineNumbers: true,
-    mode: "application/sparql-query"
-  });
-});*/
-
-
-
-/*var myCodeMirror = CodeMirror(document.body, {
-  value: "function myScript(){return 100;}\n",
-  mode:  "javascript"
-});*/
-
-</script>
+{# SPARQL page scripts temporarily disabled. #}
 {% endblock %}
 
 {% endblock %}
