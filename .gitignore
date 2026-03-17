@@ -1,0 +1,7 @@
+# Runtime logs
+*.log
+*.log.*
+
+# Project-specific logs
+flask/app/uwsgi.log*
+graphdb-data/logs/
